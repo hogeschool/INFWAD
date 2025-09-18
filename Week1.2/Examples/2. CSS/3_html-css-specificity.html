@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Specificity Example</title>
+    <style>
+        /* Type selector */
+        p {
+            color: blue;
+        }
+
+        /* Class selector */
+        .example-classname-a {
+            color: green;
+        }
+
+        /* ID selector */
+        #example-id-1,
+        #example-id-2,
+        #example-id-3 {
+            color: red;
+        }
+
+        /* Class selector with !important */
+        .example-classname-b {
+            color: purple !important; /* This will override everything */
+        }
+
+        /* Inline style will override all above */
+
+        /* Note:
+            This is a simple example. It can get much more complex:
+            https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Specificity
+
+            It is imporant to know that CSS works like this, because it can cause confusion.
+            Most developers would recommend only using classes for you own styling,
+            because it will keep things easier to read and maintain as your codebase grows.
+        */
+    </style>
+</head>
+<body>
+    <h1>CSS Specificity Demo</h1>
+    <p>This paragraph is styled by the <strong>type selector</strong> (blue).</p>
+    <p class="example-classname-a">This paragraph is styled by a <strong>class selector</strong> (green overrides blue).</p>
+    <p id="example-id-1" class="example-classname-a">This paragraph is styled by the <strong>ID selector</strong> (red overrides green and blue).</p>
+    <p id="example-id-2" class="example-classname-a" style="color: orange;">This paragraph uses <strong>inline style</strong> (orange overrides red, green and blue).</p>
+    <p id="example-id-3" class="example-classname-b" style="color: orange;">This paragraph is styled by the <strong>!important rule</strong> (overrides everything).</p>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Example page showcasing Tailwind CSS's uglyness</title>
+    <style>
+        .button-group {
+            padding: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem 1rem;
+            background: linear-gradient(135deg, #bfdbfe 0%, #fff 50%, #bbf7d0 100%);
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border: 2px solid #d1d5db;
+            max-width: 56rem;
+            margin: 3rem auto;
+        }
+
+        .btn {
+            font-size: 1rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 0.75rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.125rem;
+            border: 2px solid #1e40af;
+            box-shadow: 0 4px 16px rgba(37,99,235,0.15);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-primary:hover, .btn-primary:focus {
+            background: #1e3a8a;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(37,99,235,0.25);
+        }
+
+        .btn-success {
+            background: linear-gradient(90deg, #4ade80 0%, #14b8a6 100%);
+            color: #fff;
+            font-weight: 600;
+            border: 1px solid #22c55e;
+            border-radius: 9999px;
+            box-shadow: 0 4px 16px rgba(16,185,129,0.15);
+            letter-spacing: -0.01em;
+        }
+
+        .btn-success:hover, .btn-success:focus {
+            background: linear-gradient(90deg, #14b8a6 0%, #4ade80 100%);
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: #fff;
+            font-weight: bold;
+            border-bottom: 4px solid #b91c1c;
+            box-shadow: 0 2px 8px rgba(239,68,68,0.15);
+            letter-spacing: 0.04em;
+        }
+
+        .btn-danger:hover, .btn-danger:focus {
+            background: #b91c1c;
+        }
+
+        .btn-ghost {
+            background: #fff;
+            color: #111827;
+            font-family: monospace;
+            border: 2px solid #9ca3af;
+            box-shadow: 0 1px 4px rgba(156,163,175,0.10);
+            text-transform: uppercase;
+        }
+
+        .btn-ghost:hover, .btn-ghost:focus {
+            background: #e5e7eb;
+        }
+
+        .btn-warning {
+            background: #facc15;
+            color: #854d0e;
+            font-weight: 900;
+            border: 2px solid #f59e42;
+            border-radius: 1rem;
+            box-shadow: inset 0 2px 8px #fde68a;
+            letter-spacing: 0.12em;
+        }
+
+        .btn-warning:hover, .btn-warning:focus {
+            background: #fbbf24;
+        }
+    </style>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <h1>Utility classes approach</h1>
+    <p>Some popular CSS frameworks go overboard with the utility classes approach. This page is meant to demonstrate what this does to your code. (I do not recommend using this approach. Instead, try to strive for code that is as clear, clean and semantic as possible.)</p>
+    <p>Also note that the default styling has all been reset by this framework. So my h1 is not even styled by default.</p>
+
+    <!-- Clean, semantic html, doing your styling in a separate CSS file -->
+    <div class="button-group">
+        <button class="btn btn-primary">Primary Action</button>
+        <button class="btn btn-success">Success</button>
+        <button class="btn btn-danger">Danger</button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button class="btn btn-warning">Warning</button>
+    </div>
+
+    <!-- Ugly unmaintainable utility class based html with Tailwind CSS -->
+    <div class="p-10 space-x-6 space-y-4 flex flex-wrap items-center justify-between bg-gradient-to-br from-blue-100 via-white to-green-100 rounded-2xl shadow-2xl border-2 border-gray-300 max-w-4xl mx-auto my-12">
+        <button class="bg-blue-600 hover:bg-blue-800 text-white font-extrabold text-lg py-3 px-8 rounded-xl shadow-lg border-2 border-blue-700 transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300 tracking-wide uppercase">
+            Primary Action
+        </button>
+        <button class="bg-gradient-to-r from-green-400 to-teal-500 hover:from-teal-500 hover:to-green-400 text-white font-semibold text-base py-3 px-7 rounded-full shadow-xl border border-green-500 transition duration-500 focus:outline-none focus:ring-2 focus:ring-teal-300 tracking-tight">
+            Success
+        </button>
+        <button class="bg-red-500 hover:bg-red-700 text-white font-bold text-base py-3 px-7 rounded-lg shadow-md border-b-4 border-red-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-red-400 tracking-wider">
+            Danger
+        </button>
+        <button class="bg-white hover:bg-gray-200 text-gray-900 font-mono text-base py-3 px-7 rounded-lg border-2 border-gray-400 shadow-sm transition duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300 uppercase">
+            Ghost
+        </button>
+        <button class="bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-black text-base py-3 px-7 rounded-2xl shadow-inner border-2 border-yellow-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-300 tracking-widest">
+            Warning
+        </button>
+    </div>
+</body>
+</html>

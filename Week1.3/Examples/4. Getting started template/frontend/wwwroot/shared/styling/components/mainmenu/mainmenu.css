@@ -1,0 +1,19 @@
+.mainmenu {
+    /* background-color: red; */
+}
+
+.mainmenu-list {
+
+    display: flex;
+    flex-direction: row;
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /* background-color: blue; */
+}
+
+.mainmenu-list-item {
+    flex: 1
+    /* background-color: green; */
+}

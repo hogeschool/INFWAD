@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- This <meta> tag sets character encoding -->
+    <meta charset="UTF-8" />
+    <!-- The title tag defines the title of the document -->
+    <title>HTML Elements Example</title>
+    <!-- The <meta> tag is related to responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- The <link> tag links to external resources -->
+     <!-- TODO deze helemaal weghalen? -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- The <header> tag can be used to group introductory content -->
+    <header>
+        <h1>Welcome to HTML Elements Example</h1>
+        <!-- The <nav> tag defines navigation links -->
+        <nav>
+            <!-- The <ul> and <li> tags create a list -->
+            <!-- The <a> tag creates a hyperlink -->
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#article">Article</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- The <main> tag can group the main content -->
+    <main>
+        <!-- The <section> tag groups related content -->
+        <section id="about">
+            <h1>About This Page</h1>
+            <!-- The <p> tag defines a paragraph -->
+            <p>This page demonstrates basic HTML elements in context.</p>
+            <!-- The <ul> tag creates an unordered list -->
+            <ul>
+                <!-- The <li> tag defines a list item -->
+                <li>Semantic structure</li>
+                <li>Short descriptions</li>
+                <li>Life-like examples</li>
+            </ul>
+            <!-- The <ol> tag creates an ordered list -->
+            <ol>
+                <li>Learn HTML</li>
+                <li>Practice coding</li>
+                <li>Build web pages</li>
+            </ol>
+            <!-- The <figure> tag groups media and caption -->
+            <figure>
+                <!-- The <img> tag embeds an image -->
+                <img src="https://picsum.photos/id/91/200/300" alt="Placeholder image" />
+                <!-- The <figcaption> tag adds a caption to the image -->
+                <figcaption>Example of an oldschool selfie</figcaption>
+            </figure>
+        </section>
+
+        <!-- The <article> tag defines independent content -->
+        <article id="article">
+            <h2>Sample Article</h2>
+            <p>
+                <!-- The <strong> tag highlights important text -->
+                <strong>HTML</strong> is the standard markup language for web pages.
+                <!-- The <em> tag emphasizes text -->
+                <em>Learning HTML</em> is the first step to web development.
+            </p>
+            <!-- The <blockquote> tag for quoted text -->
+            <blockquote cite="https://www.w3.org/">
+                "HTML is the backbone of the web."
+            </blockquote>
+            <!-- The <pre> tag preserves whitespace and formatting -->
+            <pre>
+                <!-- The <code> tag indicated this is code -->
+                <code>&lt;h1&gt;Hello, world!&lt;/h1&gt;</code>
+            </pre>
+            <!-- The <a> tag creates a hyperlink -->
+            <p>Visit the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">MDN HTML Guide</a> for more info.</p>
+            <!-- The <table> tag creates a table -->
+            <table>
+                <thead>
+                    <tr>
+                        <!-- The <th> tag defines a table header -->
+                        <th>Name</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- The <tr> tag defines a table row -->
+                    <tr>
+                        <!-- The <td> tag defines a table cell -->
+                        <td>Alice</td>
+                        <td>Student</td>
+                    </tr>
+                    <tr>
+                        <td>Bob</td>
+                        <td>Teacher</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+        <!-- The <aside> tag contains related side content -->
+        <aside>
+            <h3>Did you know?</h3>
+            <p>HTML stands for HyperText Markup Language.</p>
+        </aside>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <!-- The <form> tag creates a form for user input -->
+            <form>
+                <!-- The <label> tag labels form elements -->
+                <label for="name">Name:</label>
+                <!-- The <input> tag for user input -->
+                <input type="text" id="name" name="name" />
+                <br />
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" />
+                <br />
+                <!-- The <textarea> tag for multi-line input -->
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+                <br />
+                <!-- The <button> tag creates a clickable button -->
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- The <footer> tag defines the page footer -->
+    <footer>
+        <!-- &copy; is an encoded way of writing the copyright symbol. You can also use the UTF-8 character -->
+        <p>&copy; 2025 Example School. All rights reserved.</p>
+        <!-- The <small> tag for fine print -->
+        <small>Page created for educational purposes.</small>
+    </footer>
+</body>
+</html>

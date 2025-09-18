@@ -1,0 +1,17 @@
+
+GET http://localhost:5011/api/sum/?a=4565&b=23
+#####
+
+GET http://localhost:5011/api/sum/?a=46&b=-5
+#####
+
+POST http://localhost:5011/api/calculate
+Content-Type: application/json
+
+{
+    "n1": 5,
+    "n2": 10,
+    "Operator": "*"
+}
+
+#####

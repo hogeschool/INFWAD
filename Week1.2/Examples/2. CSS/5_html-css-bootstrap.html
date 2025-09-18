@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- This <meta> tag sets character encoding -->
+    <meta charset="UTF-8" />
+    <!-- The title tag defines the title of the document -->
+    <title>HTML Elements Example</title>
+    <!-- The <meta> tag is related to responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+</head>
+<body class="bg-light">
+    <!-- The <header> tag can be used to group introductory content -->
+    <header>
+        <!-- Bootstrap Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">HTML Elements Example</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#article">Article</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- The <main> tag can group the main content -->
+    <!-- The container class from Bootstrap provides responsive behaviour -->
+    <main class="container my-4">
+        <!-- About Section with Bootstrap Card -->
+        <section id="about" class="mb-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h1 class="card-title">About This Page</h1>
+                    <p class="card-text">This page demonstrates basic HTML elements in context, styled with Bootstrap for rapid, beautiful results.</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-group mb-3">
+                                <li class="list-group-item">Semantic structure</li>
+                                <li class="list-group-item">Short descriptions</li>
+                                <li class="list-group-item">Life-like examples</li>
+                            </ul>
+                            <ol class="list-group list-group-numbered mb-3">
+                                <li class="list-group-item">Learn HTML</li>
+                                <li class="list-group-item">Practice coding</li>
+                                <li class="list-group-item">Build web pages</li>
+                            </ol>
+                        </div>
+                        <div class="col-md-6 d-flex flex-column align-items-center">
+                            <figure>
+                                <img src="https://picsum.photos/id/91/200/300" alt="Placeholder image" class="img-fluid rounded mb-2 shadow" />
+                                <figcaption class="text-muted">Example placeholder image</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Section with Bootstrap Table and Blockquote -->
+        <article id="article" class="mb-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title">Sample Article</h2>
+                    <p><strong>HTML</strong> is the standard markup language for web pages. <em>Learning HTML</em> is the first step to web development.</p>
+                    <blockquote class="blockquote ms-3">
+                        <p>"HTML is the backbone of the web."</p>
+                        <footer class="blockquote-footer">W3C</footer>
+                    </blockquote>
+                    <pre class="bg-dark text-light rounded p-3 my-3"><code>&lt;h1&gt;Hello, world!&lt;/h1&gt;</code></pre>
+                    <p>Visit the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN HTML Guide</a> for more info.</p>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered mt-3">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Role</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Alice</td>
+                                    <td>Student</td>
+                                </tr>
+                                <tr>
+                                    <td>Bob</td>
+                                    <td>Teacher</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Bootstrap Alert as Aside -->
+        <aside class="alert alert-info" role="alert">
+            <h3 class="alert-heading">Did you know?</h3>
+            <p class="mb-0">HTML stands for <strong>HyperText Markup Language</strong>.</p>
+        </aside>
+
+        <!-- Bootstrap Form -->
+        <section id="contact" class="my-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title mb-4">Contact Us</h2>
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message:</label>
+                            <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bootstrap Cards Row: Visually impressive, minimal code -->
+        <section class="row g-4 my-5">
+            <div class="col-md-4">
+                <div class="card text-bg-success text-center shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Success Card</h5>
+                        <p class="card-text">A beautiful green card with just a class!</p>
+                        <button class="btn btn-light">Action</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-bg-warning text-center shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Warning Card</h5>
+                        <p class="card-text">Bootstrap makes color and layout easy.</p>
+                        <button class="btn btn-dark">Action</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-bg-danger text-center shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Danger Card</h5>
+                        <p class="card-text">Impressive results, minimal code.</p>
+                        <button class="btn btn-light">Action</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- The <footer> tag defines the page footer -->
+    <footer class="bg-primary text-white text-center py-4 mt-5">
+        <p class="mb-1">&copy; 2024 Example School. All rights reserved.</p>
+        <small>Page created for educational purposes.</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    flex: 0 0 10vh;
+    background-color: lightgray;
+}
+
+.content {
+    flex: 1;
+    background-color: lightblue;
+
+    display: flex;
+
+    .dashboard {
+        flex: 1;
+        background-color: lightyellow;
+    }
+
+    .sidebar {
+        flex: 0 0 25%;
+        background-color: lightcoral;
+    }
+}
+
+.footer {
+    flex: 0 0 10vh;
+    background-color: lightgreen;
+}

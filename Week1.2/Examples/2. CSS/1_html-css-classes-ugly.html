@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample HTML with Flexbox, Grid, Block, and Table (Divs) styling</title>
+</head>
+<style>
+    .text {
+        border: 2px solid black;
+    }
+
+    .top {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+        background: #f8f9fa;
+    }
+    .example1{
+        background: #d1e7dd;
+        color: #0f5132;
+        padding: 14px;
+        border-radius: 6px;
+        margin-bottom: 12px;
+    }
+
+    .example2 {
+        background: #d1e7dd;
+        color: #0f5132;
+        padding: 14px;
+        border-radius: 6px;
+        margin-bottom: 12px;
+    }
+
+    .example3 {
+        background: green !important;
+        padding: 10px;
+        border-radius: 6px;
+        margin-bottom: 12px;
+    }
+
+    .container{
+        background: seagreen;
+        margin: 10px;
+        padding: 10px;
+    }
+    .container2 {
+        background: white;
+    }
+
+    .greenboxes {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 32px;
+        border: 2px solid #198754;
+        padding: 10px;
+        background: #e9fbe5;
+    }
+
+    .box {
+        background: #198754;
+        color: #fff;
+        padding: 16px;
+        border-radius: 6px;
+        text-align: center;
+        flex: 1 1 0;
+    }
+
+    .specialbox {
+        flex: 2 1 0;
+    }
+
+    .redboxes,
+    .blueboxes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        border: 2px dotted #fd7e14;
+        padding: 10px;
+        background: #fff3e0;
+        margin-bottom: 32px;
+    }
+
+    .blueboxes {
+        background: #00f;
+    }
+
+    .redboxes div {
+        background: #fd7e14;
+        color: #fff;
+        padding: 18px;
+        border-radius: 6px;
+        min-width: 120px;
+        text-align: center;
+    }
+
+    .table-a {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 32px;
+    }
+
+    .blockdemo {
+        display: block;
+        background: #e0e0e0;
+        color: #333;
+        padding: 16px;
+        margin-bottom: 12px;
+        border-radius: 6px;
+        width: 60%;
+        font-weight: normal;
+    }
+
+    .overzicht {
+        display: table;
+        width: 60%;
+        border-collapse: collapse;
+        margin-top: 24px;
+    }
+
+    .overzicht .line {
+        display: table-row;
+    }
+
+    .overzicht .line .cell {
+        display: table-cell;
+        border: 1px solid #bbb;
+        padding: 10px 16px;
+        background: #fff;
+    }
+
+    .container1 {
+        background: red;
+    }
+
+    .cell.blauw {
+        background: #4f8cff !important;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .block {
+        background: #ffb84f;
+        color: #222;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+    }
+</style>
+<body class="top">
+    <h1>HTML Layout Examples</h1>
+    <p>This page demonstrates various HTML and CSS layout techniques including flow layout, flexbox, grid, and block elements.</p>
+    <p>It works but classnames are a mess. The code is not self-explanatory and there is a high risk of mistakes when working on this code.</p>
+    <p>While working on code like this over time, it is likely that it will become a big mess, with orphaned code and more lines than needed.</p>
+    <h2>Default flow layout example</h2>
+    <p class="example1">
+        This is flow layout. Inline elements like <strong>this</strong>, <em>this</em> and <a href="#">this link</a> flow with browser-default formatting.
+    </p>
+    <p class="example2">
+        Text wraps as needed, and elements appear in the order they are written in the HTML.
+    </p>
+
+    <h2>Margins & paddings example (notice the collapsing margins)</h2>
+    <div class="container1">
+        <div class="container">
+            <div class="container2"><span class="text">Content (text node)</span></div>
+        </div>
+        <div class="container">
+            <div class="container2"><span class="text">Content (text node)</span></div>
+        </div>
+    </div>
+
+    <h2>Flexbox layout mode example</h2>
+    <div class="greenboxes">
+        <div class="box">Flex Item 1</div>
+        <div class="box specialbox">Flex Item 2 (Grow 2x)</div>
+        <div class="box">Flex Item 3</div>
+    </div>
+
+    <h2>Flexbox with wrapping example</h2>
+    <div class="redboxes">
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+        <div>Item 4</div>
+        <div>Item 5</div>
+    </div>
+
+    <h2>Grid layout mode example</h2>
+    <div class="table-a">
+        <div class="block">Grid 1</div>
+        <div class="block">Grid 2</div>
+        <div class="block">Grid 3</div>
+        <div class="block">Grid 4</div>
+        <div class="block">Grid 5</div>
+        <div class="block">Grid 6</div>
+    </div>
+
+    <h2>Block Elements</h2>
+    <div class="blockdemo">This is a block-level div element.</div>
+    <strong class="blockdemo">Another block-level div element.</strong>
+
+    <h2>Table Using Only Divs (This is possible with CSS, but not the most semantic)</h2>
+    <div class="overzicht">
+        <div class="line">
+            <div class="cell blauw">Name</div>
+            <div class="cell blauw">Age</div>
+            <div class="cell blauw">Country</div>
+        </div>
+        <div class="line">
+            <div class="cell">Alice</div>
+            <div class="cell">24</div>
+            <div class="cell">USA</div>
+        </div>
+        <div class="line">
+            <div class="cell">Bob</div>
+            <div class="cell">30</div>
+            <div class="cell">UK</div>
+        </div>
+        <div class="line">
+            <div class="cell">Charlie</div>
+            <div class="cell">28</div>
+            <div class="cell">Canada</div>
+        </div>
+    </div>
+</body>
+</html>

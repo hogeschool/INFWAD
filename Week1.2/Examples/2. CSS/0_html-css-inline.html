@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample HTML with Flexbox, Grid, Block, and Table (Divs) styling</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 30px; background: #f8f9fa;">
+    <h1>HTML Layout Examples</h1>
+
+    <h2>Default flow layout example</h2>
+    <p style="background: #d1e7dd; color: #0f5132; padding: 14px; border-radius: 6px; margin-bottom: 12px;">
+        This is flow layout. Inline elements like <strong>this</strong>, <em>this</em> and <a href="#" style="color: red">this link</a> flow with browser-default formatting.
+    </p>
+    <p style="background: #d1e7dd; color: #0f5132; padding: 14px; border-radius: 6px; margin-bottom: 12px;">
+        Text wraps as needed, and elements appear in the order they are written in the HTML.
+    </p>
+
+    <h2>Margins & paddings example (notice the collapsing margins)</h2>
+    <div style="background: red;">
+        <div style="background: seagreen; margin: 10px; padding: 10px;">
+            <div style="background: white"><span style="border: 2px solid black">Content (text node)</span></div>
+        </div>
+        <div style="background: seagreen; margin: 10px; padding: 10px;">
+            <div style="background: white"><span style="border: 2px solid black">Content (text node)</span></div>
+        </div>
+    </div>
+
+    <h2>Flexbox layout mode example</h2>
+    <div style="display: flex; gap: 10px; margin-bottom: 32px; border: 2px solid #198754; padding: 10px; background: #e9fbe5;">
+        <div style="background: #198754; color: #fff; padding: 16px; border-radius: 6px; flex: 1 1 0; text-align: center;">Flex Item 1</div>
+        <div style="background: #198754; color: #fff; padding: 16px; border-radius: 6px; flex: 2 1 0; text-align: center;">Flex Item 2 (Grow 2x)</div>
+        <div style="background: #198754; color: #fff; padding: 16px; border-radius: 6px; flex: 1 1 0; text-align: center;">Flex Item 3</div>
+    </div>
+
+    <h2>Flexbox with wrapping example</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; border: 2px dotted #fd7e14; padding: 10px; background: #fff3e0; margin-bottom: 32px;">
+        <div style="background: #fd7e14; color: #fff; padding: 18px; border-radius: 6px; min-width: 120px; text-align: center;">Item 1</div>
+        <div style="background: #fd7e14; color: #fff; padding: 18px; border-radius: 6px; min-width: 120px; text-align: center;">Item 2</div>
+        <div style="background: #fd7e14; color: #fff; padding: 18px; border-radius: 6px; min-width: 120px; text-align: center;">Item 3</div>
+        <div style="background: #fd7e14; color: #fff; padding: 18px; border-radius: 6px; min-width: 120px; text-align: center;">Item 4</div>
+        <div style="background: #fd7e14; color: #fff; padding: 18px; border-radius: 6px; min-width: 120px; text-align: center;">Item 5</div>
+    </div>
+
+    <h2>Grid layout mode example</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 32px;">
+        <div style="background: #ffb84f; color: #222; padding: 20px; border-radius: 8px; text-align: center;">Grid 1</div>
+        <div style="background: #ffb84f; color: #222; padding: 20px; border-radius: 8px; text-align: center;">Grid 2</div>
+        <div style="background: #ffb84f; color: #222; padding: 20px; border-radius: 8px; text-align: center;">Grid 3</div>
+        <div style="background: #ffb84f; color: #222; padding: 20px; border-radius: 8px; text-align: center;">Grid 4</div>
+        <div style="background: #ffb84f; color: #222; padding: 20px; border-radius: 8px; text-align: center;">Grid 5</div>
+        <div style="background: #ffb84f; color: #222; padding: 20px; border-radius: 8px; text-align: center;">Grid 6</div>
+    </div>
+
+    <h2>Block Elements</h2>
+    <div style="display: block; background: #e0e0e0; color: #333; padding: 16px; margin-bottom: 12px; border-radius: 6px; width: 60%;">This is a block-level div element.</div>
+    <div style="display: block; background: #e0e0e0; color: #333; padding: 16px; margin-bottom: 12px; border-radius: 6px; width: 60%;">Another block-level div element.</div>
+
+    <h2>Table Using Only Divs (This is possible with CSS, but not the most semantic)</h2>
+    <div style="display: table; width: 60%; border-collapse: collapse; margin-top: 24px;">
+        <div style="display: table-row;">
+            <div style="display: table-cell; border: 1px solid #bbb; padding: 10px 16px; background: #4f8cff; color: #fff; font-weight: bold;">Name</div>
+            <div style="display: table-cell; border: 1px solid #bbb; padding: 10px 16px; background: #4f8cff; color: #fff; font-weight: bold;">Age</div>
+            <div style="display: table-cell; border: 1px solid #bbb; padding: 10px 16px; background: #4f8cff; color: #fff; font-weight: bold;">Country</div>
+        </div>
+        <div style="display: table-row;">
+            <div style="display: table-cell; border: 1px solid #bbb; padding: 10px 16px; background: #fff;">Alice</div>
+            <div style="display: table-cell; border: 1px solid #bbb; padding: 10px 16px; background: #fff;">24</div>
+            <div style="display: table-cell; border: 1px solid #bbb; padding: 10px 16px; background: #fff;">USA</div>
+        </div>
+        <div style="display: table-row;">
+            <div style="display: table-cell; border: 1px solid #bbb; padding: 10px 16px; background: #fff;">Bob</div>
+            <div style="display: table-cell; border: 1px solid #bbb; padding: 10px 16px; background: #fff;">30</div>
+            <div style="display: table-cell; border: 1px solid #bbb; padding: 10px 16px; background: #fff;">UK</div>
+        </div>
+        <div style="display: table-row;">
+            <div style="display: table-cell; border: 1px solid #bbb; padding: 10px 16px; background: #fff;">Charlie</div>
+            <div style="display: table-cell; border: 1px solid #bbb; padding: 10px 16px; background: #fff;">28</div>
+            <div style="display: table-cell; border: 1px solid #bbb; padding: 10px 16px; background: #fff;">Canada</div>
+        </div>
+    </div>
+</body>
+</html>

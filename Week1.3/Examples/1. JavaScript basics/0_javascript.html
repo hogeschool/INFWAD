@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sum Calculator</title>
+</head>
+    <body>
+        <script>
+            function computeSum() {
+                const number1 = parseFloat(document.getElementById('num1').value);
+                const number2 = parseFloat(document.getElementById('num2').value);
+                const sum = number1 + number2;
+                document.getElementById('result').textContent = `${sum}`;
+            }
+        </script>
+        
+        <input type="number" id="num1" placeholder="Enter first number"> 
+        + 
+        <input type="number" id="num2" placeholder="Enter second number"> 
+        = 
+        <span id="result"></span><br>
+        <button onclick="computeSum()">Calculate Sum</button>
+    </body>
+</html>

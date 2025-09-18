@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample HTML with Flexbox, Grid, Block, and Table (Divs) styling</title>
+</head>
+<style>
+    .htmldemo {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+        background: #f8f9fa;
+    }
+    .flowdemo {
+        background: #d1e7dd;
+        color: #0f5132;
+        padding: 14px;
+        border-radius: 6px;
+        margin-bottom: 12px;
+    }
+    .spacingdemo {
+        background: red;
+    }
+    .spacingdemo-block {
+        background: seagreen;
+        margin: 10px;
+        padding: 10px;
+    }
+    .spacingdemo-content {
+        background: white;
+    }
+    .spacingdemo-label {
+        border: 2px solid black;
+    }
+    .flexboxdemo {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 32px;
+        border: 2px solid #198754;
+        padding: 10px;
+        background: #e9fbe5;
+    }
+    .flexboxdemo-item {
+        background: #198754;
+        color: #fff;
+        padding: 16px;
+        border-radius: 6px;
+        text-align: center;
+        flex: 1 1 0;
+    }
+    .flexboxdemo-item--grow {
+        flex: 2 1 0;
+    }
+    .flexboxwrapdemo {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        border: 2px dotted #fd7e14;
+        padding: 10px;
+        background: #fff3e0;
+        margin-bottom: 32px;
+    }
+    .flexboxwrapdemo-item {
+        background: #fd7e14;
+        color: #fff;
+        padding: 18px;
+        border-radius: 6px;
+        min-width: 120px;
+        text-align: center;
+    }
+    .griddemo {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 32px;
+    }
+    .griddemo-item {
+        background: #ffb84f;
+        color: #222;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+    }
+    .blockdemo {
+        display: block;
+        background: #e0e0e0;
+        color: #333;
+        padding: 16px;
+        margin-bottom: 12px;
+        border-radius: 6px;
+        width: 60%;
+    }
+    .tabledemo {
+        display: table;
+        width: 60%;
+        border-collapse: collapse;
+        margin-top: 24px;
+    }
+    .tabledemo-row {
+        display: table-row;
+    }
+    .tabledemo-cell {
+        display: table-cell;
+        border: 1px solid #bbb;
+        padding: 10px 16px;
+        background: #fff;
+    }
+    .tabledemo-header {
+        background: #4f8cff;
+        color: #fff;
+        font-weight: bold;
+    }
+</style>
+<body class="htmldemo">
+    <h1>HTML Layout Examples</h1>
+    <p>This page demonstrates various HTML and CSS layout techniques including flow layout, flexbox, grid, and block elements.</p>
+    <p>Class names follow a naming convention similar to <a href="https://getbem.com">BEM</a>. Keep it simple and elegant. Style based on classnames.</p>
+    <h2>Default flow layout example</h2>
+    <p class="flowdemo">
+        This is flow layout. Inline elements like <strong>this</strong>, <em>this</em> and <a href="#">this link</a> flow with browser-default formatting.
+    </p>
+    <p class="flowdemo">
+        Text wraps as needed, and elements appear in the order they are written in the HTML.
+    </p>
+
+    <h2>Margins & paddings example (notice the collapsing margins)</h2>
+    <div class="spacingdemo">
+        <div class="spacingdemo-block">
+            <div class="spacingdemo-content"><span class="spacingdemo-label">Content (text node)</span></div>
+        </div>
+        <div class="spacingdemo-block">
+            <div class="spacingdemo-content"><span class="spacingdemo-label">Content (text node)</span></div>
+        </div>
+    </div>
+
+    <h2>Flexbox layout mode example</h2>
+    <div class="flexboxdemo">
+        <div class="flexboxdemo-item">Flex Item 1</div>
+        <div class="flexboxdemo-item flexboxdemo-item--grow">Flex Item 2 (Grow 2x)</div>
+        <div class="flexboxdemo-item">Flex Item 3</div>
+    </div>
+
+    <h2>Flexbox with wrapping example</h2>
+    <div class="flexboxwrapdemo">
+        <div class="flexboxwrapdemo-item">Item 1</div>
+        <div class="flexboxwrapdemo-item">Item 2</div>
+        <div class="flexboxwrapdemo-item">Item 3</div>
+        <div class="flexboxwrapdemo-item">Item 4</div>
+        <div class="flexboxwrapdemo-item">Item 5</div>
+    </div>
+
+    <h2>Grid layout mode example</h2>
+    <div class="griddemo">
+        <div class="griddemo-item">Grid 1</div>
+        <div class="griddemo-item">Grid 2</div>
+        <div class="griddemo-item">Grid 3</div>
+        <div class="griddemo-item">Grid 4</div>
+        <div class="griddemo-item">Grid 5</div>
+        <div class="griddemo-item">Grid 6</div>
+    </div>
+
+    <h2>Block Elements</h2>
+    <div class="blockdemo">This is a block-level div element.</div>
+    <div class="blockdemo">Another block-level div element.</div>
+
+    <h2>Table Using Only Divs (This is possible with CSS, but not the most semantic)</h2>
+    <div class="tabledemo">
+        <div class="tabledemo-row">
+            <div class="tabledemo-cell tabledemo-header">Name</div>
+            <div class="tabledemo-cell tabledemo-header">Age</div>
+            <div class="tabledemo-cell tabledemo-header">Country</div>
+        </div>
+        <div class="tabledemo-row">
+            <div class="tabledemo-cell">Alice</div>
+            <div class="tabledemo-cell">24</div>
+            <div class="tabledemo-cell">USA</div>
+        </div>
+        <div class="tabledemo-row">
+            <div class="tabledemo-cell">Bob</div>
+            <div class="tabledemo-cell">30</div>
+            <div class="tabledemo-cell">UK</div>
+        </div>
+        <div class="tabledemo-row">
+            <div class="tabledemo-cell">Charlie</div>
+            <div class="tabledemo-cell">28</div>
+            <div class="tabledemo-cell">Canada</div>
+        </div>
+    </div>
+</body>
+</html>
