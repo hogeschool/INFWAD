@@ -1,4 +1,9 @@
 // JavaScript code with potential type issues
+// Run in terminal with: 'node FromJStoTS.js'
+//
+// Convert to TypeScript by renaming to FromJStoTS.ts and adding types
+// where needed. Fix any type errors that arise.
+// Run in terminal with: 'npx tsx FromJStoTS.ts'
 
 function add(a, b) {
   return a + b;
