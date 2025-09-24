@@ -1,14 +1,15 @@
 # Lecture notes: 1.4 - TypeScript
+
 The lecture has been recorded. These are the teacher’s personal notes. They might not be perfect. This document is not meant as a complete transcript or replacement for the lecture, but contains the notes and tips for you to study after viewing the lecture.
 
-## Introduction to TS
+## 1. Introduction to TS
 TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
 - **JavaScript and a lot More** : TypeScript adds additional syntax to JavaScript to support a tighter integration with your editor. Catch errors early in your editor.
 - **Runs as Javascript** : TypeScript code compiles to JavaScript, which runs anywhere JavaScript runs: In a browser, on Node.js, Deno, Bun and in your apps.
 - **Required Tools** : Something to install the TypeScript compiler with (for example, Node.JS and npm).
 
 
-### Installation
+### 1.1 Installation
 
 If you are a beginner, start with `npm` instead of the newer package managers.
 
@@ -20,11 +21,11 @@ If you are a beginner, start with `npm` instead of the newer package managers.
 
   (You might have to uninstall your current Node.js version first)
 
-### TypeScript reference
+### 1.2 TypeScript reference
 - https://www.typescriptlang.org
 
 
-### Creating your project
+### 1.3 Creating your project
 - Open a folder in VSCode (we will use VSCode, you may choose whichever tool you fancy)
 - Create a new project with `npm init` (Will generate a package.json file)
 - Add TS with `npm install typescript -D` -D because we want to include the TS compiler as a development utility but do not want any traces of it in the resulting compiled JavaScript
@@ -71,7 +72,7 @@ If you are a beginner, start with `npm` instead of the newer package managers.
   ```
   You can now use the Run and Debug tab in VSCode.
   
-### Testing
+### 1.4 Testing
 
 1. Install compatible Jest version
 `npm install -D jest ts-jest @types/jest`
@@ -117,14 +118,14 @@ Reference (optional reading):
 https://jestjs.io/docs/getting-started#using-typescript
 
 
-## The Basics
+## 2. The Basics
 https://www.typescriptlang.org/docs/handbook/2/basic-types.html
 
 1. Hello TS
 2. variables, data types and type inference, static type checking, let and const
 4. functions
 
-### 1. Hello TS
+### 2.1 Hello TS
 ```ts
 console.log(`Welcome to TS`)
 console.log(`The result of 3+3*3/2 is ${3+3*3/2}`)
@@ -141,7 +142,7 @@ Is 3/2=1.5 or 1 ? it is 1
 Unlike javascript 3!='3' or "3", but 3==3 and '3'==="3" true
 ```
 
-### 2. Types
+### 2.2 Types
 https://www.typescriptlang.org/docs/handbook/2/everyday-types.html
 https://www.typescriptlang.org/docs/handbook/variable-declarations.html
 - The primitives: string, number, and boolean;
@@ -207,7 +208,7 @@ The type names String, Number, and Boolean (starting with capital letters) are l
 
   ```
 
-### 3. Functions
+### 2.3 Functions
 
 Functions are the basic building block of any application, whether they’re local functions, imported from another module, or methods on a class. They’re also values, and just like other values, TypeScript has many ways to describe how functions can be called. Let’s learn about how to write types that describe functions.
 
@@ -482,7 +483,9 @@ console.log(arr.reduce((a, b) => a + b, 0)); // Reduce
 
 The point of teaching map, reduce, and filter in this lesson was to introduce language constructs and problem-solving approaches: how to approach a problem, which language constructs to use, pros and cons of each approach, and how to refactor your code. 
 
-## Excercises
+## 3. Excercises
 
-### 1. From JavaScript to TypeScript
-In the Examples folder, make a copy of the file `FromJStoTS.js`, rename it to .ts, and rewrite it to be valid TypeScript. There are lots of ways to improve upon the given code. Use this excercise to try out different TypeScript features.
+### 3.1 From JavaScript to TypeScript
+In the Examples folder, make a copy of the file [`FromJStoTS.js`](./Examples/1_javascript-to-typescript/FromJStoTS.js), rename it to .ts, and rewrite it to be valid TypeScript. There are lots of ways to improve upon the given code. Use this excercise to try out different TypeScript features.
+
+> Refactor the example: [`FromJStoTS.js`](./Examples/1_javascript-to-typescript/FromJStoTS.js)
