@@ -5,10 +5,10 @@ This course, Web Application Development (INFWAD), will take you on a first expl
 
 ## Program
 
-- Week 1 (1.1): Introduction
-- Week 2 (1.2): Front-end fundamentals: HTML & CSS
-- Week 3 (1.3): Front-end fundamentals: JavaScript, Client-server interaction
-- Week 4 (1.4): React & TypeScript: Introduction to TypeScript
+- [Week 1 (1.1): Introduction](./Week1.1/)
+- [Week 2 (1.2): Front-end fundamentals: HTML & CSS](./Week1.2/)
+- [Week 3 (1.3): Front-end fundamentals: JavaScript, Client-server interaction](./Week1.3/)
+- [Week 4 (1.4): React & TypeScript: Introduction to TypeScript](Week1.4/)
 - Week 5 (1.5): React & TypeScript: Functional Programming
 - Week 6 (1.6): React & TypeScript: Introduction to React
 - Week 7 (1.7): React & TypeScript: Asynchronous code, State management
