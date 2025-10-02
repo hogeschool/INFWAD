@@ -20,3 +20,7 @@ This course, Web Application Development (INFWAD), will take you on a first expl
 - Week 13 (2.3): Back-end C# / EF: Logging & security
 - Week 14 (2.4): Integration: Integrating front-end and back-end
 - Week 15 (2.5): Integration: Final steps
+
+## Project progress / planning aid
+
+If you need help with planning what to focus on in your project during this course, [this aid](./Project/progress_check.md) is available
