@@ -26,7 +26,7 @@ If we use React with JavaScript (for this introduction), we use not just plain J
 
 are allowed. Plain JS doesn't allow these. 
 A simple example App component: 
-```js
+```ts
 class App extends React.Component {
     constructor() {}
     render() {
@@ -35,7 +35,7 @@ class App extends React.Component {
 }
 ```
 Components are re-usable.
-```js
+```ts
 class MyComponent extends React.Component {
    constructor() {}
     render() {
@@ -61,7 +61,7 @@ A virtual DOM is a programming concept where a web framework maintains its own l
 
 ### 2.4 ReactDOM
 The ReactDOM package within the library is used to change the DOM in the way we just described above.  
-```
+```ts
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
 ```
@@ -74,7 +74,7 @@ Components often need to change what’s on the screen as a result of an interac
 
 State is one of the ways to alter the view of your component without refreshing the page. If you have a variable or data that is prone to change, it should be defined as a state variable, so information is retained between renders.
 
-```
+```ts
 class Counter extends React.Component {
     constructor(props) {
         super(props);
@@ -90,7 +90,7 @@ class Counter extends React.Component {
 }
 ```
 and the way to update state before React 16 was:
-```
+```ts
 this.setState(state => ({ counter: state.counter - 1 }))
 ```
 
