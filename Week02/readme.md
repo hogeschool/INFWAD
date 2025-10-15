@@ -305,11 +305,15 @@ problems.
 
 ### 3.7 Media queries and responsive design
 
-Media queries are the lines of CSS that allow responsive design. Look up
-some examples online about media queries and responsive design. We will
-revisit this subject during the project.
+Media queries are the lines of CSS that allow responsive design. That means changing the styling of your UI based on things like screen size.
 
-Just a tip: Adding media queries to your CSS will make it even harder to
+Study these links:
+
+https://www.w3schools.com/css/css3_mediaqueries_ex.asp
+
+https://css-tricks.com/a-complete-guide-to-css-media-queries/
+
+Another tip: Adding media queries to your CSS will make it even harder to
 keep it clean and readable (and thus maintainable). Do your best to keep
 refactoring (yes I know, I keep repeating myself) whenever you add
 something new to your code.
