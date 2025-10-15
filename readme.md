@@ -8,11 +8,11 @@ This course, Web Application Development (INFWAD), will take you on a first expl
 - [Week 1 (1.1): Introduction](./Week01/)
 - [Week 2 (1.2): Front-end fundamentals: HTML & CSS](./Week02/)
 - [Week 3 (1.3): Front-end fundamentals: JavaScript, Client-server interaction](./Week03/)
-- [Week 4 (1.4): React & TypeScript: Introduction to TypeScript](Week04/)
-- [Week 5 (1.5): React & TypeScript: Functional Programming](Week05/)
-- [Week 6 (1.6): React & TypeScript: Introduction to React](Week06/)
-- Week 7 (1.7): React & TypeScript: Asynchronous code, State management
-- Week 8 (1.8): React & TypeScript: Routing, Data fetching
+- [Week 4 (1.4): TypeScript: Introduction to TypeScript](./Week04/)
+- [Week 5 (1.5): TypeScript: Functional Programming](./Week05/)
+- [Week 6 (1.6): React: Introduction to React](./Week06/)
+- [Week 7 (1.7): React: Asynchronous code](./Week07/)
+- Week 8 (1.8): React: Routing and State Management
 - Week 9 (1.9): Back-end C# / EF: Databases & Entity Framework
 - Week 10 (1.10): Back-end C# / EF: Minimal APIs
 - Week 11 (2.1): Back-end C# / EF: MVC architecture, Dependency Injection
