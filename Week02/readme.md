@@ -340,3 +340,9 @@ it.
 > Study the example: [`5_html-css-bootstrap.html`](./Examples/2_css/5_html-css-bootstrap.html)
 
 (But honesty, a better tip: Check [the Bootstrap website](https://getbootstrap.com))
+
+### 3.10 Flexbox
+
+The Flexbox layout mode is probably the best option to style the main layout of your application. This is a good resource to learn more about Flexbox:
+
+[CSS Flexbox Layout Guide - CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
