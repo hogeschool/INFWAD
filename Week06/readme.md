@@ -4,7 +4,7 @@ The lecture has been recorded. These are the teacher’s personal notes. They mi
 
 ## 1. Introduction to React
 
-[React](https://react.dev/) is a free and open-source front-end JavaScript library for building *component-based* user interfaces. It is maintained by [Meta](https://opensource.fb.com/projects/react/) and a community of [individual developers](https://react.dev/community/team) and companies. To get started with React, jump to section the [Getting Started](#getting-started) below.
+[React](https://react.dev/) is a free and open-source front-end JavaScript library for building *component-based* user interfaces. It is maintained by [Meta](https://opensource.fb.com/projects/react/) and a community of [individual developers](https://react.dev/community/team) and companies. To get started with React, jump to section the [Getting Started](#4-getting-started-quick-start) below.
 
 React is used to build **Single-Page Applications** (SPAs). A SPA is a website or application that loads a single HTML page and dynamically updates content using JavaScript, providing a smooth, app-like experience without constant full page reloads, unlike traditional websites.
 
@@ -309,7 +309,7 @@ There are a lot of options for getting started with React. We encourage you to f
 
 Here are a two options we suggest you try first. Make a new project folder and try these, then decide what you like, or discuss with your team.
 
-(First of all, you should follow the instructions for installing **npm** [here](../Week1.4/readme.md), if you don't have npm yet)
+(First of all, you should follow the instructions for installing **npm** [here](../Week04/readme.md), if you don't have npm yet)
 
 
 ### 1. Parcel: Ideal for getting started quickly
