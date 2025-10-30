@@ -4,28 +4,28 @@ Use this when looking for guidance on what to focus on during which week. This i
 <br>
 <br>
 
-| Week | Subject | What to focus on / What to practice (+suggested order/priority) |
-| --- | --- | --- |
-| 1.1 | Introduction |  |
-| 1.2 | Front-end fundamentals | Group approach and mission, Project plan, HTML & CSS |
-| 1.3 | Front-end fundamentals | Design/wireframes, Tasks and planning, Setting up project structure/files, HTML & CSS |
-| 1.4 | TypeScript | HTML & CSS, Understanding NPM & tooling, TypeScript practice |
-| 1.5 | TypeScript | TypeScript practice, HTML & CSS |
-| 1.6 | React | React (applying TypeScript), HTML & CSS |
-| 1.7 | React | React (applying TypeScript), Asynchronous code, HTML & CSS |
-| 1.8 | React | React (applying TypeScript), State management, HTML & CSS |
-| 1.9 | Back-end | Database and Entity Framework, Improving front-end |
-| 1.10 | Back-end | API, Improving front-end |
-| 2.1 | Back-end | MVC and Dependency Injection, Improving front-end |
-| 2.2 | Back-end | Improving back-end en front-end |
-| 2.3 | Back-end | Middleware, Authentication, Improving back-end en front-end |
-| 2.4 | Integration | Security, Improving back-end en front-end |
-| 2.5 | Integration | Last improvements to back-end en front-end |
-| 2.6 | Deadline for submission | Final presentation of your work and code |
-| 2.7 |  | (presentations will be spread out over two weeks) |
-| 2.8 | Theory exam |  |
-| 2.9 | Retake assessment (if failed) | Presentation of your improved work and code |
-| 2.10 | Retake theory exam |  |
+| Week | Calendar | Subject | What to focus on / What to practice (+suggested order/priority) |
+| --- | --- | --- | --- |
+| 1.1 | 1-5 Sep | Introduction |  |
+| 1.2 | 8-12 Sep | Front-end fundamentals | Group approach and mission, Project plan, HTML & CSS |
+| 1.3 | 15-19 Sep | Front-end fundamentals | Design/wireframes, Tasks and planning, Setting up project structure/files, HTML & CSS |
+| 1.4 | 22-26 Sep | TypeScript | HTML & CSS, Understanding NPM & tooling, TypeScript practice |
+| 1.5 | 29 Sep - 3 Oct | TypeScript | TypeScript practice, HTML & CSS |
+| 1.6 | 6-10 Oct | React | React (applying TypeScript), HTML & CSS |
+| 1.7 | 13-17 Oct | React | React (applying TypeScript), Asynchronous code, HTML & CSS |
+| 1.8 | 27-31 Oct | React | React (applying TypeScript), State management, HTML & CSS |
+| 1.9 | 3-7 Nov | Back-end | Database and Entity Framework, Improving front-end |
+| 1.10 | 10-14 Nov | Back-end | API, Improving front-end |
+| 2.1 | 17-21 Nov | Back-end | MVC and Dependency Injection, Improving front-end |
+| 2.2 | 24-28 Nov | Back-end | Improving back-end en front-end |
+| 2.3 | 1-5 Dec | Back-end | Middleware, Authentication, Improving back-end en front-end |
+| 2.4 | 8-12 Dec | Integration | Security, Improving back-end en front-end |
+| 2.5 | 15-19 Dec | Integration | Last improvements to back-end en front-end |
+| 2.6 | 5-9 Jan | Deadline for submission | Final presentation of your work and code |
+| 2.7 | 12-16 Jan |  | (presentations will be spread out over two weeks) |
+| 2.8 | 19-23 Jan | Theory exam |  |
+| 2.9 | 26-30 Jan | Retake assessment (if failed) | Presentation of your improved work and code |
+| 2.10 | 2-6 Feb | Retake theory exam |  |
 
 <br>
 <br>
