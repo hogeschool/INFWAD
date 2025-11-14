@@ -14,7 +14,7 @@ This course, Web Application Development (INFWAD), will take you on a first expl
 - [Week 7 (1.7): React: Asynchronous code](./Week07/)
 - [Week 8 (1.8): React: Routing and State Management](./Week08/)
 - [Week 9 (1.9): Back-end C# / EF: Databases & Entity Framework](./Week09/)
-- Week 10 (1.10): Back-end C# / EF: Minimal APIs
+- [Week 10 (1.10): Back-end C# / EF: Minimal APIs](./Week10/)
 - Week 11 (2.1): Back-end C# / EF: MVC architecture, Dependency Injection
 - Week 12 (2.2):
 - Week 13 (2.3): Back-end C# / EF: Logging & security
