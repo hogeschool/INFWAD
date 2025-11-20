@@ -225,16 +225,61 @@ Status[0] = grades[0]!>5.5
 
 Functions are the basic building block of any application, whether they’re local functions, imported from another module, or methods on a class. They’re also values, and just like other values, TypeScript has many ways to describe how functions can be called. Let’s learn about how to write types that describe functions.
 
+#### Named functions
 ```ts
-function Add(a:number,b:number){
-  return a+b
+function Add(a:number, b:number) {
+  return a + b;
 }
-
-// Or Lambda style:
-const Add2 = (a:number,b:number):number=>a+b;
-
-const Add3:(a:number,b:number)=>number = (a,b)=>a+b;
 ```
+```ts
+// Or when you add the return type of the function itself as well:
+function Add(a:number, b:number): number {
+  return a + b;
+}
+```
+#### Anonymous functions
+```ts
+const Add = function(a:number, b:number) {
+  return a + b;
+}
+```
+```ts
+// Or when you add the return type of the function itself as well:
+const Add = function(a:number, b:number):number {
+  return a + b;
+}
+```
+
+#### Lambda / 'fat arrow' function notations
+Another way of writing anonymous functions is the lambda function. Using the fat arrow `=>`, we dropped the need to use the function keyword.
+
+(For newcomers: Do not confuse it with the `>=` and `<=` operators (Greater than or equal / Less than or equal) when reading code!)
+```ts
+// When you write it this way, the 'return' is implied:
+const Add = (a:number, b:number):number => a + b;
+```
+```ts
+// Or with curly brackets (needs explicit 'return'):
+const Add = (a:number, b:number):number => {
+  return a + b;
+}
+```
+
+You can move the type definition of the function to the front as well:
+
+```ts
+const Add:(a:number,b:number)=>number = (a, b) => a + b;
+```
+```ts
+// With curly brackets:
+const Add:(a:number,b:number)=>number = (a ,b) => {
+  // Space for more code here
+  return a + b;
+}
+```
+
+For more a more in-depth explanation with lots of examples, when you want to know more or are running into specific problems when you're working on your project, read this:
+> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 
 ### 2.7 Diving deeper
 
