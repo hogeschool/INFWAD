@@ -422,6 +422,8 @@ By working on the examples above, we have also practiced with a couple of TypeSc
 
 The above implementations are limited to a given set of operations only. If we want an even more generalized implementation, the operation must be flexible and should be defined later. We can pass it as a function. This way, ActionAll becomes a Higher Order Function.
 
+We will call the input parameter that will contain the operation function: `fx` (instead of `action`):
+
 ```ts
 function ActionAllHoF(arr:number[], fx:(a:number, c:number):number):number {
   let result = arr[0];
@@ -538,7 +540,7 @@ const product = Reduce<number, number>((a, b) => a * b, 1)(nums);
 console.log(sum, product); // 10 24
 ```
 
-Or:
+Or even shorter:
 
 ```ts
 function Reduce<T, R>(fn: (acc: R, cur: T) => R, init: R) {
@@ -558,6 +560,7 @@ console.log(Reduce((a, b) => a * b, 1)(nums)); // 24
 Apart from reduce, other common higher order functions are filter and map:
 
 ```ts
+// Non curried version:
 function MapGeneric<T, R>(arr: Array<T>, fn: (val: T, index: number) => R): Array<R> {
   const result: Array<R> = [];
   for (let i = 0; i < arr.length; i++) {
@@ -566,11 +569,11 @@ function MapGeneric<T, R>(arr: Array<T>, fn: (val: T, index: number) => R): Arra
   return result;
 }
 
-// Example
+// Example usage
 const squared = MapGeneric([1, 2, 3], (x) => x * x);
-console.log(squared); // [1,4,9]
+console.log(squared); // [1, 4, 9]
 
-//OR
+// Curried version:
 function Map<T, R>(fn: (x: T) => R) {
   return (arr: T[]): R[] => {
     if (arr.length === 0) return [];
@@ -579,11 +582,13 @@ function Map<T, R>(fn: (x: T) => R) {
   };
 }
 
-// Usage
-console.log(Map((x: number) => x * 2)([1, 2, 3])); // [2, 4, 6]
+// Example usage
+const timesTwo = Map((x: number) => x * 2)([1, 2, 3]);
+console.log(timesTwo); // [2, 4, 6]
 ```
 
 ```ts
+// Non curried version:
 function FilterGeneric<T>(arr: Array<T>, pred: (val: T, index: number) => boolean): Array<T> {
   const result: Array<T> = [];
   for (let i = 0; i < arr.length; i++) {
@@ -592,11 +597,11 @@ function FilterGeneric<T>(arr: Array<T>, pred: (val: T, index: number) => boolea
   return result;
 }
 
-// Example
-const evens = FilterGeneric([1, 2, 3, 4], (x) => x % 2 === 0);
-console.log(evens); // [2,4]
+// Example usage
+const evenNumbers = FilterGeneric([1, 2, 3, 4], (x) => x % 2 === 0);
+console.log(evens); // [2, 4]
 
-//OR
+// Curried version:
 function Filter<T>(pred: (x: T) => boolean) {
   return (arr: T[]): T[] => {
     if (arr.length === 0) return [];
@@ -605,13 +610,14 @@ function Filter<T>(pred: (x: T) => boolean) {
   };
 }
 
-// Usage
-console.log(Filter((x: number) => x % 2 === 0)([1, 2, 3, 4])); // [2, 4]
+// Example usage
+const evenNumbersB = Filter((x: number) => x % 2 === 0)([1, 2, 3, 4]);
+console.log(evenNumbersB); // [2, 4]
 ```
 
-We may reuse of reduce to do quite a lot of things for example reduce can be used to map, and filter as well.
+We may reuse this Reduce pattern to do quite a lot of things, for example reduce can be used to map, and filter as well.
 
-Reusing Reduce to implement Map and Filter
+Reusing Reduce to implement Map and Filter:
 
 ```ts
 // Map using Reduce
