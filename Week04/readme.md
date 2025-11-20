@@ -253,7 +253,7 @@ const Add = function(a:number, b:number):number {
 #### Lambda / 'fat arrow' function notations
 Another way of writing anonymous functions is the lambda function. Using the fat arrow `=>`, we dropped the need to use the function keyword.
 
-(For newcomers: Do not confuse it with the `>=` and `<=` operators (Greater than or equal / Less than or equal) when reading code!)
+(Do not confuse it with the `>=` and `<=` operators (Greater than or equal / Less than or equal) when reading code!)
 ```ts
 // When you write it this way, the 'return' is implied:
 const Add = (a:number, b:number):number => a + b;
@@ -272,7 +272,7 @@ const Add:(a:number,b:number)=>number = (a, b) => a + b;
 ```
 ```ts
 // With curly brackets:
-const Add:(a:number,b:number)=>number = (a ,b) => {
+const Add:(a:number,b:number)=>number = (a, b) => {
   // Space for more code here
   return a + b;
 }
