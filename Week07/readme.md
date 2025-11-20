@@ -142,7 +142,7 @@ async function getData(url: string) {
     }
 }
 ```
-The `await` keywoard pauses that line of code until the function that is **awaited** returns. So the line `const response = await fetch(url);` will not continue it's execution until the fetch() request returns with a response or error.
+The `await` keywoard pauses that line of code until the function that is **awaited** returns. So the line `const response = await fetch(url);` will not continue its execution until the fetch() request returns with a response or error.
 
 ## 7. Axios - Alternative for fetch
 Instead of `fetch()`, some developers use Axios, a promise-based HTTP client.

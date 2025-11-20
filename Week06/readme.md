@@ -20,7 +20,7 @@ Therefore, with React, design simple views for each state in your application, a
 
 ### 2.2 Component-Based
 User Interfaces are represented with reusable components in React. 
-If we use React with JavaScript (for this introduction), we use not just plain JavaScript syntax but we use JavaScript XML (**JSX**), which enables each component to return HTML tags. So in JSX things like:
+If we use React with JavaScript (for this introduction), we use not just plain JavaScript syntax but we use JavaScript XML (**JSX**). JSX is a syntax extension for JavaScript that enables each component to return HTML tags. So in JSX things like:
 
 `const element = <h1>Hello!</h1>`
 
@@ -208,18 +208,18 @@ const ChatRoom: React.FC<{roomId: string}> = ({ roomId }) => {
   const [serverUrl, setServerUrl] = useState('https://localhost:1234');
 
   useEffect(() => {
-  	const connection = createConnection(serverUrl, roomId);
+    const connection = createConnection(serverUrl, roomId);
     connection.connect();
-  	return () => {
+    return () => {
       connection.disconnect();
-  	};
+    };
   }, [serverUrl, roomId]);
   // ...
 }
 ```
 In the code above, the code inside `useEffect` runs once and only runs again if the `serverUrl` or `roomId` change. This means that, in a perfect world, we are always going to stay connected to the server that we specified.
 
-The example we had in our Counter component was a bit different and maybe out-of-context.
+This is an updated Counter component that makes use of useEffect():
 ```ts
 const Counter: React.FC = () => {
     // If counter key exists return that, else init counter to zero
@@ -231,9 +231,10 @@ const Counter: React.FC = () => {
     // Runs everytime counter changes
     useEffect(() => {
         localStorage.setItem('counter', counter.toString());
+        console.log("Runs when the component mounts, and again for every counter update")
     }, [counter]);
 
-    useEffect(() => {console.log("Runs just once")}, [])
+    useEffect(() => {console.log("Runs when the component mounts")}, [])
 
     return (
         <div>
@@ -245,7 +246,7 @@ const Counter: React.FC = () => {
     )
 }
 ```
-In the code above, `localStorage.setItem('counter', counter.toString());` only runs when the counter changes, meaning that the `counter` key is set to a new value everytime the user updates the counter via the increment or decrement button. 
+In the code above, `localStorage.setItem('counter', counter.toString());` only runs again when the counter changes, meaning that the `counter` key is set to a new value everytime the user updates the counter via the increment or decrement button. 
 
 ## 4. Getting Started: Quick start
 if you want to dive into React real quick, just copy paste the code below into an html file and open it up in a browser to see your changes.

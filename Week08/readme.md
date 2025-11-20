@@ -136,10 +136,12 @@ export default function NotFound() {
 Dynamic routes allow you to create paths that contain parameters.
 
 Example:
+
+For a URL like `https://localhost/dashboard/42` or `https://localhost/dashboard/personal`
 ```js
 <Route path="/dashboard/:id" element={<DashboardItem />} />
 ```
-Then use the `useParams()` hook to access the parameter value:
+Then use the `useParams()` hook to access the URL path parameter value:
 ```js
 import { useParams } from 'react-router-dom'
 
@@ -166,7 +168,7 @@ const LoginPage = () => {
 ```
 
 ## Nested Routes
-Nested routes allow you to structure components hierarchically.
+Nested routes allow you to structure components hierarchically. Inside `<Outlet />`, it will render the matching child route element.
 
 Example:
 ```js
