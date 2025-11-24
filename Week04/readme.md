@@ -217,8 +217,7 @@ console.log(names)
 let grades:number[] = [7.5, 9, 0, 10]
 let Status = Array<boolean>(4)
 
-Status[0] = grades[0]!>5.5
-
+Status[0] = grades[0]! > 5.5
 ```
 
 ### 2.6 Functions

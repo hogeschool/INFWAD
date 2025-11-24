@@ -145,7 +145,7 @@ type Success = {
 Before we start using that, let's add some use of generics and discriminated unions as well:
 
 ```ts
-type Success<T> {
+type Success<T> = {
   status: "OK"; // This is a Literal Type. Instead of any string, the variable 'status' can only contain the value "OK".
   result: T;
 }
@@ -191,7 +191,7 @@ But there is better way. We can make our code even safer, and inform the user th
 We can make something that returns a result of type ReturnType, that includes a status, and a reason if there is a failure:
 
 ```ts
-type Success<T> {
+type Success<T> = {
   status: "OK"; 
   result: T;
 }
@@ -203,7 +203,7 @@ type Fail = {
 
 type ReturnType<T> = Success<T> | Fail;
 
-function MapGeneric2<T, R>(arr: Array<T>, fn: (val: T, index: number) => R): ReturnType<R> {
+function MapGeneric2<T, R>(arr: Array<T>, fn: (val: T, index: number) => R): ReturnType<R[]> {
   if(arr.length<=0) return {status: "Fail", reason: "Empty array"};
 
   const result: Array<R> = [];
@@ -217,7 +217,7 @@ function MapGeneric2<T, R>(arr: Array<T>, fn: (val: T, index: number) => R): Ret
 }
 
 // Example usage
-const res = MapGeneric([1, 2, 3], (x) => x * x);
+const res = MapGeneric2([1, 2, 3], (x) => x * x);
 
 if (res.status == "Fail") {
   console.log(res.reason);
@@ -247,9 +247,7 @@ type Member = {
 }
 
 type User = Admin | Member;
-```
 
-```ts
 // Pretend this was loaded from JSON
 const apiUsers:Array<User> = [
   { kind: "member", id: 1, name: "Alice", points: 42 },
