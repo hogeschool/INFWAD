@@ -1,4 +1,4 @@
-# Lecture notes: 1.3 - Front-end fundamentals part 2
+# Lecture notes: Week 3 - Front-end fundamentals part 2
 
 The lecture has been recorded. These are the teacher’s personal notes. They might not be perfect. This document is not meant as a complete transcript or replacement for the lecture, but contains the notes and tips for you to study after viewing the lecture.
 

@@ -1,4 +1,4 @@
-# Lecture notes: 1.5 - TypeScript: Functional programming introduction
+# Lecture notes: Week 5 - TypeScript: Functional programming introduction
 
 The lecture has been recorded. These are the teacher’s personal notes. They might not be perfect. This document is not meant as a complete transcript or replacement for the lecture, but contains the notes and tips for you to study after viewing the lecture.
 

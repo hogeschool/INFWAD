@@ -1,4 +1,4 @@
-# Lecture notes: 2.1 - Back-end: Controllers, services, and dependency injection
+# Lecture notes: Week 11 - Back-end: Controllers, services, and dependency injection
 
 The lecture has been recorded. These are the teacher’s personal notes. They might not be perfect. This document is not meant as a complete transcript or replacement for the lecture, but contains the notes and tips for you to study after viewing the lecture.
 
