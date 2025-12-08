@@ -1,0 +1,42 @@
+# VS / IDE
+.vs/
+.vscode/
+.idea/
+
+# .NET build outputs
+bin/
+obj/
+**/bin/
+**/obj/
+backend/bin/
+backend/obj/
+
+# .NET / Visual Studio files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.nupkg
+packages/
+
+# Test & coverage
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# Logs
+*.log
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+local.settings.json
+
+# Misc
+publish/
+artifacts/
+*.db
+*.db-shm
+*.db-wal

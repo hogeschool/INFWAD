@@ -1,0 +1,21 @@
+.loginpage {
+    padding: 0 40px 20px 40px;
+    border: 1px solid #777;
+    border-radius: 5px;
+}
+
+.loginpage-field {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+
+.loginpage-field-input {
+    flex: 0 1 auto;
+    width: 200px;
+    margin-left: 10px;
+}
+
+.loginpage-button {
+    padding: 10px 20px;
+}

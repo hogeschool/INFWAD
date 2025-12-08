@@ -1,0 +1,39 @@
+@baseUrl = http://localhost:5050
+
+###
+
+// Gets all todos (will be empty until we have added some)
+GET {{baseUrl}}/api/todo
+
+###
+
+// Creates a todo item with given title
+POST {{baseUrl}}/api/todo
+Content-Type: application/json
+
+{
+  "title": "Call Gwaihir"
+}
+
+###
+
+// Gets by id (existing) - replace 1 with created id
+GET {{baseUrl}}/api/todo/1
+
+### 
+
+// Update todo (valid) - replace id as needed
+PUT {{baseUrl}}/api/todo/1
+Content-Type: application/json
+
+{
+  "title": "Backend Done",
+  "isDone": true
+}
+
+###
+
+// Deletes todo (existing)
+DELETE {{baseUrl}}/api/todo/1
+
+###

@@ -1,0 +1,26 @@
+.todopage {
+  padding: 0 40px 20px 40px;
+  border: 1px solid #777;
+  border-radius: 5px;
+}
+
+.todopage-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  list-style-type: none;
+}
+
+.todopage-list li input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.todopage-list li label,
+.todopage-add {
+  display: flex;
+  align-items: center;
+}
+
+.todopage-add-field {
+  margin-right: 10px;
+}
