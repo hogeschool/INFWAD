@@ -18,7 +18,7 @@ This course, Web Application Development (INFWAD), will take you on a first expl
 - [Week 11 (2.1): Back-end C# / EF: MVC architecture, Dependency Injection](./Week11/)
 - [Week 12 (2.2): Self-study week](./Week12/)
 - [Week 13 (2.3): Back-end C# / EF: Logging & security](./Week13/)
-- Week 14 (2.4): Integration: Integrating front-end and back-end
+- [Week 14 (2.4): Integration: Integrating front-end and back-end](./Week14/)
 - Week 15 (2.5): Integration: Final steps
 
 ## Project progress / planning aid
