@@ -23,4 +23,8 @@ This course, Web Application Development (INFWAD), will take you on a first expl
 
 ## Project progress / planning aid
 
-If you need help with planning what to focus on in your project during this course, [this aid](./Project/progress_check.md) is available
+If you need help with planning what to focus on in your project during this course, [this aid](./Project/progress_check.md) is available.
+
+## Tips
+
+If you are stressed or could use some ideas to get unstuck, check out these [handy top 10 lists of tips](./Tips/readme.md).
