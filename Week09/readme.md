@@ -141,7 +141,7 @@ public class AppDbContext : DbContext {
 dotnet ef migrations add InitCustomer
 dotnet ef database update
 ```
-> use Ctrl+Ship+P to open pallet, SQLite:Open Database (select the db file)/ SQL Explorer to view schema, provided you have appropriate SQLite Extension installed for example by alexcvzz 
+> use Ctrl+Shift+P to open the Command Palette (VSCode), SQLite:Open Database (select the db file)/ SQL Explorer to view schema, provided you have appropriate SQLite Extension installed for example (by alexcvzz)
 - Other dbms can be used to view database schema for example pgadim for Postgress etc. 
 
 
