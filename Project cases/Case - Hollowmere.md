@@ -29,15 +29,16 @@ What has to be kept track of for a piece of gear: its name, its kind, its condit
 
 ### The quest board
 
-A quest is an expedition: a party leaves on a fixed day, with a leader, and comes back. A member accepts a letter from a village and posts the quest, and that member is its leader. The quest names the village and describes the area in a few lines, like the burial mounds in the west valley, haunted according to the letter. It names the creature from the bestiary when there is one, a day of departure, and how many days the party is expected to be gone. It also has a number of places beside the leader's own. Other members ask for a place, and the leader confirms the ones they want, up to the number of places. A request not confirmed by the day of departure stays a request, and that member stays home.
+A quest is an expedition: a party leaves on a fixed day, with a leader, and comes back. A member accepts a letter from a village and posts the quest, and that member is its leader. The quest names the village and describes the area in a few lines, like the burial mounds in the west valley, haunted according to the letter. It names the creature from the bestiary when there is one, a day of departure, and how many days the party is expected to be gone. The leader also decides the size of the party (the number of members that can join the quest). Members can request a place, and the leader then chooses the members they want. A request not confirmed by the day of departure stays a request, and that member stays home.
 
 Some quests are for anybody, but one does not simply walk into the northern range, where every creature is marked dangerous.
 
-- Only the quest's leader confirms a request for a place, and no more requests are confirmed than the quest has places.
+- Only the quest's leader confirms a request for joining the quest.
+- The size of the party determines the maximum amount of confirmed members.
 - On a quest against a dangerous creature, the leader is a trained member and the leader confirms only trained members.
 - Only the leader changes or cancels a quest. The leader can hand the quest to another member, but only to one with a confirmed place.
 
-What has to be kept track of for a quest: the leader, the village, the description of the area, the creature when there is one, the day of departure, the number of days, the number of places, and whether it has been cancelled. For a request: the quest, the member, and whether the leader has confirmed it.
+What has to be kept track of for a quest: the leader, the village, the description of the area, the creature when there is one, the day of departure, the number of days, the number of places (the maximum amount of members that can join), and whether it has been cancelled. For a request: the quest, the member, and whether the leader has confirmed it.
 
 ### The yard
 
