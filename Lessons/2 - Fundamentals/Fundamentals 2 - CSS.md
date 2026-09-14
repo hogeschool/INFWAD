@@ -120,7 +120,7 @@ Below are three versions of the same page. Same HTML structure, same end result 
 
 > 🎓 Open VSCode, copy these examples into new HTML files, and open them all in your browser. They should look identical. Walk through each one in the DevTools inspector to see how it feels to work with them.
 >
-> Just so you're not overwhelmed: these examples use flexbox, grid, and a couple of other layout features that we'll cover properly next week. You don't need to understand every line of CSS to follow the comparison. The point of this section is how the CSS is structured, not what each layout property does.
+> Just so you're not overwhelmed: these examples use flexbox, grid, and a couple of other layout features that we'll cover properly in the next lesson. You don't need to understand every line of CSS to follow the comparison. The point of this section is how the CSS is structured, not what each layout property does.
 
 ### Version 1: Inline styles everywhere
 
@@ -618,7 +618,7 @@ This one moves the styling out of the HTML and into a `<style>` block, using cla
 
 But the class names are bad!
 
-This is still an improvement compared to version 1. But six months from now, when someone needs to add a new section, they will be staring at this file wondering which class to copy and what `top` actually means. This is where it becomes a **slow-motion disaster**: they will give up and just add a new class, bloating the code further.
+Six months from now, when someone needs to add a new section, they will be staring at this file wondering which class to copy and what `top` actually means. This is where it becomes a **slow-motion disaster**: they will give up and just add a new class, bloating the code further.
 
 > 🎓 Practice: Before you scroll down, go up and copy version 2 into a new HTML file in VSCode, and rename every class yourself. For each one, ask yourself what the thing is actually _for_, and give it a better name.
 >
@@ -1101,7 +1101,7 @@ Generating CSS with AI is tempting. The output looks plausible. It often does wo
 
 It also tends to make a mess. AI-generated CSS bloats fast, repeats values that should be variables, and creates duplicate rules that subtly conflict with each other (which is hard to fix). If you ask it to refactor your stylesheet, you should review every line. It will sometimes confidently rewrite a rule that breaks the rest of the page in ways you don't notice for a week.
 
-Asking AI to _explain_ CSS to you (specificity, the cascade, why a rule isn't applying) is fine and often useful. Asking it to _write_ CSS for you, especially this early in your learning, will hurt you. You won't internalise the patterns, and you'll struggle when something breaks.
+Asking AI to _explain_ CSS to you (specificity, the cascade, why a rule isn't applying) is fine and often useful. Asking it to _write_ CSS for you, especially this early in your learning, will hurt you. You won't internalise the patterns, and you'll struggle when something breaks. (For the group project it's also against the course rules: AI may explain, it may not write.)
 
 (For looking things up, I'd suggest the Mozilla Developer Network: [https://developer.mozilla.org/en-US/docs/Web/CSS](https://developer.mozilla.org/en-US/docs/Web/CSS). Great resource and nicer to work with than asking AI when you actually want to learn.)
 
@@ -1163,13 +1163,13 @@ While you are building this sort of structure, pick the element that matches the
 
 The one plain `<div>` left in there, `card-body`, is not a mistake. Last lesson's advice, do not build a whole page out of `<div>` and `<span>`, still holds. But if you can't find a semantic element for "the text column of a card", we can use a `<div>`. It groups the heading, summary, and footer so they sit beside the image as a single block. Use a semantic element where one fits the meaning, and a plain `<div>` where the layout just needs a grouping that has no specific meaning (but do give it a good class name!).
 
-Half the CSS work happens at the HTML stage. Try to get the structure right first: semantic elements where they fit, wrapper elements where the layout needs them. Then write the CSS. (That's why your project pages were HTML only last week.) In practice, you will probably have to go back and forth a lot, but try to create a good starting point for yourself.
+Half the CSS work happens at the HTML stage. Try to get the structure right first: semantic elements where they fit, wrapper elements where the layout needs them. Then write the CSS. (That's why the first lesson had you build your project pages as HTML only.) In practice, you will probably have to go back and forth a lot, but try to create a good starting point for yourself.
 
 > 🎓 Try implementing the above example yourself using https://developer.mozilla.org/play. Write the CSS for `.card-body` yourself, according to the description above. When you're done, save the results in your demo project folder, so we can use it in a later lesson.
 
 ## What's coming next
 
-In this lesson we've covered some of the basics. Next lesson we go into layout: the box model, flexbox, grid, common layout patterns, and responsive design with media queries. We'll also touch on CSS frameworks (Bootstrap, Tailwind, and what they actually do).
+Next lesson we go into layout: the box model, flexbox, grid, common layout patterns, and responsive design with media queries. We'll also touch on CSS frameworks (Bootstrap, Tailwind, and what they actually do).
 
 ## Resources
 
@@ -1194,6 +1194,6 @@ This lesson doesn't cover everything. While you build your project you will need
 
 You've made some plain HTML for your module's pages already. Keep working on that, but this week, add stylesheets: one per module, plus one `styles.css` for the whole team. The colors, the spacing and the font belong to everyone, so agree on them together and put them in `:root` as variables before anyone writes a rule. Then each of you adds the classes your own pages need, using a naming convention you agreed on as a team. (Read the rules of thumb above again, together.)
 
-Keep it simple for now. Three or four colors, one font, a few spacing sizes for things like margins, and enough rules to make a list look like a list and a form look like a form. No fancy stuff like shadows or hover effects. It will still look boring, but it should, because layout is next week and the framework rewrite comes after that. What has to be right first is the stuff that survives all of that: the variables, the class names, the structure underneath. Fix those while the stylesheets are thirty lines, not three hundred.
+Keep it simple for now. Three or four colors, one font, a few spacing sizes for things like margins, and enough rules to make a list look like a list and a form look like a form. No fancy stuff like shadows or hover effects. It will still look boring, but it should, because layout is the next lesson and the framework rewrite comes after that. What has to be right first is the stuff that survives all of that: the variables, the class names, the structure underneath. Fix those while the stylesheets are thirty lines, not three hundred.
 
-And keep refining the backlog, like we said last week.
+And keep refining the backlog, like we said in the previous lesson.

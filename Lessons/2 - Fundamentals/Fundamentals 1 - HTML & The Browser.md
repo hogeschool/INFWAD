@@ -36,7 +36,7 @@ The ever growing technological complexity today can be overwhelming sometimes. Y
 
 Let's get specific.
 
-HTML has been around since 1993. Tim Berners-Lee invented it at CERN. The basics haven't changed that much since, even though it has picked up plenty of new features along the way.
+HTML has been around since 1993. Tim Berners-Lee invented it at CERN to help scientists share research documents easily. The basics haven't changed that much since, even though it has picked up plenty of new features along the way.
 
 HTML is how you structure content on a web page. It is not a programming language. It uses _elements_ (also called _tags_) to tell the browser how to render content: text, images, buttons, links, inputs.
 
@@ -56,7 +56,7 @@ Here is a basic page:
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>A basic example page</title>
   </head>
   <body>
@@ -76,8 +76,6 @@ Use [MDN](https://developer.mozilla.org/) for that. MDN is still maintained by M
 > 🎓 Read through the [HTML Cheatsheet](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Cheatsheet) and [HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) for a few minutes, to get an idea of what elements are available.
 
 At the end of this lesson, I'll share some links you can use to learn more about using HTML.
-
-Now, let's move on to _why_ HTML is written the way it is.
 
 ### Semantic HTML
 
@@ -210,7 +208,7 @@ The important thing to understand: **the DOM is not the HTML file.** The file is
 
 The DOM is how JavaScript talks to the page.
 
-> 🎓 Try it yourself! Open DevTools on any website (In your browser, click the F12 key on your keyboard, or right-click and pick Inspect, then go to the Console tab) and type:
+> 🎓 Try it yourself! Open DevTools on any website (In your browser, press the F12 key on your keyboard, or right-click and pick Inspect, then go to the Console tab) and type:
 >
 > ```js
 > document.querySelector("h1").textContent = "Yay! I changed it!";
@@ -226,7 +224,7 @@ Every browser has DevTools. The Elements tab shows the DOM. The Console tab lets
 
 JavaScript is the language that runs in the browser to make pages do things. Its job in this environment is talking to the DOM: reading from it, writing to it, listening for events.
 
-The JavaScript language itself should be easy enough for you, so we will skip the basics. Next week we will go deeper into modern features. For now, the thing to notice is what JavaScript actually does in the browser.
+The JavaScript language itself should be easy enough for you, so we will skip the basics. Fundamentals lesson 4 goes deeper into modern features. For now, the thing to notice is what JavaScript actually does in the browser.
 
 Here is a tiny page that uses JavaScript to do something when you click a button:
 
@@ -234,15 +232,15 @@ Here is a tiny page that uses JavaScript to do something when you click a button
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title>Sum Calculator</title>
   </head>
   <body>
-    <input type="number" id="num1" placeholder="Enter first number" />
+    <input type="number" id="num1" placeholder="Enter first number">
     +
-    <input type="number" id="num2" placeholder="Enter second number" />
+    <input type="number" id="num2" placeholder="Enter second number">
     =
-    <span id="result"></span><br />
+    <span id="result"></span><br>
     <button id="calculate">Calculate</button>
 
     <script>
