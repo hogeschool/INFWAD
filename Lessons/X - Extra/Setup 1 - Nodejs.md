@@ -11,7 +11,7 @@ node -v
 npm -v
 ```
 
-This is straight from one of the previous readers, by the way. Let's go here:
+Now let's go here:
 https://nodejs.org/en/download/current
 
 (Select `nvm + npm`, or `Volta + npm` if you're on Windows)
