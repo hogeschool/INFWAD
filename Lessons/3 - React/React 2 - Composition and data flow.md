@@ -298,10 +298,8 @@ That's state and events, and it's the next lesson. We make the tree move. (And t
 
 ## Applying this to your project
 
-Now your module's list page becomes a tree. Draw it first, on paper or in the readme, the way the exercise above did for the shop screen: the page, the list, the card or the row, each with its single job in one sentence. Then build it. The page owns an array of made-up rows (the ones from your static pages, now typed), the list maps over them, and the card or row is the component from the previous lesson. The type goes in `types/`, once, and every component imports it from there.
+Now your module's list page becomes a tree. Draw it first, on paper or in the readme, the way the exercise above did for the shop screen: the page, the list, the card or the row, each with its single job in one sentence. Then build it, inside the page the shell gave you in React lesson 1. The page owns an array of made-up rows (the ones from your static pages, now typed), the list maps over them, and the card or row is the component from the previous lesson. The type goes in `types/`, once, and every component imports it from there.
 
-Folders are a team decision, so agree on them now, before there are thirty files: `features/<module>/` per module, `components/` for what's shared, `types/` for the shared types. The case rules say what belongs to the whole team (the shell, the navigation, the shared components and styling), and `components/` is where that ends up. It's empty for now. It won't stay empty.
-
-One practical problem: `App` shows one page, and you have four modules. Routing fixes that in one of the upcoming lessons. Until then, let `App` render the four page components one below the other, each person adding their own line. It looks silly, but everybody's work is visible in one running app, and it keeps four people from fighting over `App.tsx` with four different versions of it.
+`types/` is the one folder the shell didn't make, so add it now, next to `features/`, `components/` and `pages/`. The case rules say what belongs to the whole team (the shell, the navigation, the shared components and styling), and `components/` is where that lives, `Layout.tsx` first. Everything for your own module stays in `features/<module>/`.
 
 Keep the backlog current. Per page, the components it's made of is a useful line to have now.
