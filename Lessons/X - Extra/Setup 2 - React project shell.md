@@ -1,4 +1,4 @@
-# Setup 3: The project shell
+# Setup 2: The project shell
 
 In the first weeks your team built one page per module, maybe already with a header and a menu linking them together. But a React app is one page: `index.html`, one `<div id="root">`, and everything renders into that. Now you need a way to give each of your pages its own address again. The thing that connects an address to a component is called a router.
 
