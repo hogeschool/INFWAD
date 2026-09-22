@@ -275,7 +275,7 @@ Right now everything is one component showing one card, and the data is still ha
 
 Today your project becomes a React project. One person on the team scaffolds it the way we did above, in a `ClientApp` folder in the team repository, and commits it. Everyone else pulls and runs `npm install`. (Not all four of you scaffolding your own. That gives you four `package.json` files that are almost the same, and a merge nobody enjoys.) The static HTML files stay in the repository for now. They're your reference during the rewrite, and you delete them when nothing looks at them anymore.
 
-Right after the scaffold, you can build the app's shell with your team. [Setup 2: The project shell](../X%20-%20Extra/Setup%202%20-%20Project%20shell.md) walks you through it. That way each of you has a file of your own from the first commit, and nobody needs to touch `App.tsx` again. We will talk more about routing in React lesson 5.
+Right after the scaffold, you can build the app's shell with your team. [Setup 2: The project shell](../X%20-%20Extra/Setup%202%20-%20React%20project%20shell.md) walks you through it. That way each of you has a file of your own from the first commit, and nobody needs to touch `App.tsx` again. We will talk more about routing in React lesson 5.
 
 Bring the stylesheets along. The shared `styles.css` from the fundamentals weeks goes into `src/` and gets imported once in `main.tsx`, where the template already imports its own `index.css`. Each module's stylesheet gets imported by that module's page. The variables and the class names you agreed on stay exactly what they are. That's the whole reason we got them right first.
 

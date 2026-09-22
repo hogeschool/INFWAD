@@ -4,7 +4,7 @@ In the first weeks your team built one page per module, maybe already with a hea
 
 Routing gets explained in React lesson 5, but each of you needs your own page at its own address now, so that you can build inside your own module without four people editing `App.tsx`. You can use this file to help you set this up.
 
-This is team work. Do it together, right after you've agreed on the folder names. One person types and commits, the rest watch, then everybody pulls.
+This is team work. Do it together. One person types and commits, the rest watch, then everybody pulls.
 
 ## What you're going to build
 
@@ -150,7 +150,7 @@ export default function App() {
 
 It reads like a table: this address shows this page. `index` is the page at `/` itself. The paths inside have no leading slash, because they hang under the `/` of the outer route, the one that renders `Layout`. That's how every page ends up inside the shell, in the spot where `Outlet` is.
 
-Whatever `App` rendered before this, the cards from React lesson 1 or the pages stacked on top of each other, has to be moved into its own page.
+If `App` already renders something of yours, it moves into your own page.
 
 ## Four pages, one each
 
