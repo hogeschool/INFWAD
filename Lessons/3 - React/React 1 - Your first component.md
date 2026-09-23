@@ -251,6 +251,10 @@ export default function App() {
 
 > 🎓 Save and look at the browser. The starter page is gone, and in its place are a heading and three products with their prices.
 
+It also looks a bit odd: dark, centred, in a font you didn't pick. That's not your code, it's the template. Vite ships `src/index.css` with a look for its starter page, and `main.tsx` imports it. We don't want it.
+
+> 🎓 Open `src/index.css` and `src/App.css` and delete everything in both. Keep the files, and keep the `index.css` import in `main.tsx`: from now on that file is the app's shared stylesheet, and it starts empty. (`App.css` is dead, now that our `App.tsx` no longer imports it.) Save, and the page goes plain, black on white with the browser's own font, exactly as unstyled as a fresh HTML file.
+
 Those double curly braces look strange the first time you see them. The outer `{ }` is the JSX "here comes JavaScript" braces. The inner `{ }` is a plain JavaScript object. So you're passing one object, `{ name: "Phone", price: 800 }`, as the `product` prop.
 
 For now the `Product` type sits right here in the component file. Once we have more than one component sharing it, redefining the same type in every file gets silly, so we'll move it somewhere central. But that's next lesson's problem.
