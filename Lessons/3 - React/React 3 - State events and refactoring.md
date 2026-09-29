@@ -105,7 +105,7 @@ Now the real thing. The form is its own component. We have a page that owns the 
 
 ```tsx
 import { useState } from "react";
-import type { FormEvent } from "react";
+import type { SubmitEvent } from "react";
 
 type ProductFormProps = {
   onAdd: (name: string, price: number) => void;
@@ -115,7 +115,7 @@ export function ProductForm({ onAdd }: ProductFormProps) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
 
-  function handleSubmit(event: FormEvent) {
+  function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
     if (name.trim() === "" || price <= 0) {
       return;
@@ -148,7 +148,7 @@ Two controlled inputs, name and price, each backed by its own piece of state. Th
 
 The inputs sit inside a real `<form>`, which gets you two things for free: pressing Enter submits it, and a screen reader announces it as a form. The catch is that a submitted HTML form, by default, reloads the entire page, and in a single-page app a reload throws the whole running app away and starts from scratch. `event.preventDefault()` stops that. It's the first line of nearly every submit handler you will write.
 
-The imports are also worth a look. We pull in `useState`, a real function, and `FormEvent`, which is only a type (the shape of the event the form passes to the submit handler). `import type` keeps it out of the compiled output, just like for the `Product` type last lesson.
+The imports are also worth a look. We pull in `useState`, a real function, and `SubmitEvent`, which is only a type (the shape of the event the form passes to the submit handler). `import type` keeps it out of the compiled output, just like for the `Product` type last lesson.
 
 The validation is a bit basic now. Trim the name, check the price is above zero, stop early if either fails. No message on screen yet, just a quiet refusal. Enough for now.
 
