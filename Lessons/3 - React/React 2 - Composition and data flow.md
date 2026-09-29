@@ -298,8 +298,8 @@ That's state and events, and it's the next lesson. We make the tree move. (And t
 
 ## Applying this to your project
 
-Now your module's list page becomes a tree. Draw it first, on paper or in the readme, the way the exercise above did for the shop screen: the page, the list, the card or the row, each with its single job in one sentence. Then build it, inside the page the shell gave you in React lesson 1. The page owns an array of made-up rows (the ones from your static pages, now typed), the list maps over them, and the card or row is the component from the previous lesson. The type goes in `types/`, once, and every component imports it from there.
+Start by thinking about the component tree you need for your features. Draw it first, on paper or in the readme, the way the exercise above did for the shop screen: the page, the list, the card or the row, each with its single job, described in one sentence. Decide what the best names for your feature folders should be (discuss this with the whole team), and everyone can start working inside their own `features/<module>/` folder. Follow the examples in this lesson. Reusable types go in `types/`.
 
-`types/` is the one folder the shell didn't make, so add it now, next to `features/`, `components/` and `pages/`. The case rules say what belongs to the whole team (the shell, the navigation, the shared components and styling), and `components/` is where that lives, `Layout.tsx` first. Everything for your own module stays in `features/<module>/`.
+Some things are shared (your case briefing specifies them). They can go inside `components/`, outside of `features/`, and you can work on them together, or decide together how divide that work.
 
-Keep the backlog current. Per page, the components it's made of is a useful line to have now.
+Keep the backlog current. Now that your pages and components are becoming clear, start refining your backlog based on that.

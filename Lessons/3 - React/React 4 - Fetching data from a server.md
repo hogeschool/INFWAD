@@ -466,8 +466,8 @@ Wait... Are you still here? Hmmm... Ah! I see you're thinking (I hope so!)... Th
 
 ## Applying this to your project
 
-Your module's data leaves the source code. Put it in a JSON file in `public/`, one file per list, fetched when the page appears, with the three states: loading, error, and the list. That file is the start of your seed data, so make it real now: twenty to thirty rows, different values in the fields you'll filter and search on, and the awkward rows the case rules ask for (a very long title, an empty optional field, a date in the past). A list of three rows hides every layout problem a list of thirty shows, and you need the rows later anyway.
+Your module's data leaves the source code. Put it in a JSON file in `public/`, one file per list, fetched when the page appears, with the three states: loading, error, and the list. That file is the start of your seed data, so make it more realistic now: at least twenty to thirty rows, different values in the fields you'll filter and search on, and the awkward rows the case rules ask for (a very long title, an empty optional field, a date in the past). A list of three rows isn't good enough. It hides layout problems you might have!
 
-Give the file a shape of its own and map it at the boundary, the way `ProductResponse` becomes `Product`. It feels like busywork when you wrote both sides yourself. It stops feeling that way the day the backend arrives with its own names for things, which happens to you in about a month.
+Give the file a shape of its own and map it at the boundary, the way `ProductResponse` becomes `Product`. It will become handy once we start working on the backend.
 
-Throttle the network and look at your loading state for a while. A bare "Loading..." on an otherwise empty page is what most teams end up shipping, and this is the moment to give it some thought. Add, edit and delete keep working in memory and keep vanishing on refresh. Still fine.
+Throttle the network and look at your loading state for a while. A bare "Loading..." on an otherwise empty page is what most teams end up shipping, but you can do better. Try to look at examples online on good loading states for UI.

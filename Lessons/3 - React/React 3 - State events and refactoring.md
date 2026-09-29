@@ -627,10 +627,12 @@ That is the next lesson. We swap the hardcoded array for a real request and lear
 
 ## Applying this to your project
 
-Now your module starts to work. The list in your page moves into `useState`, and the form from the fundamentals weeks becomes a component that adds to it. Then delete, then edit, in that order, built the way the products were: the event happens in the child, the state change happens in the page, and a callback prop connects them. Editing is the one that forces a rethink of the form, so expect the same refactor we did above, and do it instead of working around it.
+Now you know more about how to make your components. Apply what you've learned in this lesson to your project. Events happen in the child, the state change happens in the page, and a callback prop connects them. Editing can be done with the same form component as adding a new item.
 
-The form checks its own fields: empty, not a number, a date that isn't one. The case's rules are a different thing. Who may do what, when, on whose record: nearly all of that belongs on the server, and the server is weeks away. Write the rules down in the backlog next to the page they belong to, and leave them there for now. (Everything you add still vanishes on refresh, and the fetch in the next lesson doesn't change that. Fine.)
+The form should check its own fields: empty, not a number, a date that isn't one. The case's rules are going to be more complicated than that. Who may do what, when, on whose record: nearly all of that belongs on the server, so wait with that until we get to the backend lessons. But do write the rules down in the backlog next to the page they belong to.
 
-Then the checklist. Run the seven questions over your own module and fix what smells. Then run them over a teammate's module, and have them do the same with yours. At the end of the semester every one of you has to answer questions about modules you didn't build, so code review is a habit to start now, while the files are short. And the shared button: the day two modules want the same one, it moves to `components/`. Not before.
+Also, start getting used to checking for code smell! Answer the seven questions from the end of this lesson for your own module and fix what smells. Then use that in a code review of a teammate's module, and have them do the same with yours. At the end of the semester every one of you has to answer questions about modules you didn't build, so code review is a habit to start now, while the files are short.
 
-And the styling. Your module's stylesheet from React lesson 1 stays, for what your page shares across its components. From now on, a component whose look is its own gets a `.module.css` beside it, the way the card did. The shared `styles.css` remains the one home for the variables, the reset and the typography, and a module reaches them through `var()` like any other file.
+You can also start looking out for shared components, like a generic button. Things like that should move to `components/` when you see them being used in multiple places.
+
+Lastly, the styling. Your module's stylesheet from React lesson 1 stays, but you can move it into a stylesheet per feature, follow the `.module.css` example in this lesson. The shared `styles.css` remains the home for variables, the reset stuff and the typography.
