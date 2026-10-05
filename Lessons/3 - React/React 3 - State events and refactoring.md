@@ -1,12 +1,12 @@
 # React 3: State, events, and refactoring
 
-We now have a page with a hardcoded array, a list rendering it, a card showing one item, data handed down from parent to child. Good starting point, but when you look at it in the browser, it's pretty boring. Nothing on the screen does anything, because nothing in the code can change while the app runs. I promised two things would fix that. Memory, so a component can hold a value and change it. And a way for a child to talk back up to its parent. That is state and events, the subject of this lesson.
+We now have a page with a hardcoded array, a list rendering it, a card showing one item, data handed down from parent to child. Good starting point, but when you look at it in the browser, it's pretty boring. Nothing on the screen does anything, because nothing in the code can change while the app runs. Two things fix that: memory, so a component can hold a value and change it, and a way for a child to talk back up to its parent. That's state and events, the subject of this lesson.
 
-Making the tree more dynamic is only half the work. The other half is what happens right after. Code that can change things has a habit of growing, and code that grows without care turns into a dark forest you get lost in. So we always do both. Make things come alive, let them grow a little, then learn to clean things up without breaking what works. Build a little, then refactor.
+Making the tree more dynamic is only half the work. Code that can change things has a habit of growing, and code that grows without care turns into a dark forest you get lost in. So we always do both. Make things come alive, let them grow a little, then learn to clean things up without breaking what works. Build a little, then refactor.
 
 ## State: giving a component memory
 
-Here is the top of ProductsPage from last lesson:
+Here's the top of `ProductsPage` from last lesson:
 
 ```tsx
 const products: Product[] = [
@@ -16,7 +16,7 @@ const products: Product[] = [
 ];
 ```
 
-That array is a plain `const`. It is fixed the moment the file loads, and the only way to change it is to edit the source. To change it while the app is running, the page needs memory, a value it can hold onto and change between renders. React gives a component memory with `useState`.
+That array is a plain `const`. It's fixed the moment the file loads, and the only way to change it is to edit the source. To change it while the app is running, the page needs memory, a value it can hold onto and change between renders. React gives a component memory with `useState`.
 
 > 🎓 In `ProductsPage.tsx`, swap the plain array for `useState`:
 
@@ -41,21 +41,21 @@ Let's go over that example, because most of this is probably new for you.
 
 - `[{ id: 1, name: "Laptop", price: 1200 }, etc... }]`
 
-  The argument you pass to useState (the array of three products here) is the initial value, used only on the first render and ignored after that.
+  The argument you pass to `useState` (the array of three products here) is the initial value, used only on the first render and ignored after that.
 
 - `<Product[]>`
 
-  What are those angle brackets (`<` and `>`)? Well, useState is a generic function. It must work for state of any type, a number, a string, an object, an array, and the part in angle brackets tells it which type this particular state holds. `useState<Product[]>` says the state is an array of `Product`, so TypeScript knows `products` is a `Product[]` and that `setProducts` will only accept a `Product[]`. Hand it the wrong type by mistake and TypeScript will warn you before the code runs.
+  What are those angle brackets (`<` and `>`)? Well, `useState` is a generic function. It must work for state of any type (a number, a string, an object, an array), and the part in angle brackets tells it which type this particular state holds. `useState<Product[]>` says the state is an array of `Product`, so TypeScript knows `products` is a `Product[]` and that `setProducts` will only accept a `Product[]`. Hand it the wrong type by mistake and TypeScript will warn you before the code runs.
 
   The name for this is a **generic**: a function or a type, that takes a type as an argument, the way an ordinary function takes a value. You will see the angle brackets on other things through the course.
 
-> 🎓 Save the code in your editor and look at the browser. Nothing is different. Same three cards. That's expected, all we changed is how the array is stored, from a frozen `const` into state the page is allowed to change. Nothing changes it yet. For that we need events, which is the next section. But one worry first, because it's the obvious one.
+> 🎓 Save the code in your editor and look at the browser. Nothing is different. Same three cards. That's expected: all we changed is how the array is stored, from a frozen `const` into state the page is allowed to change.
 
 ### Virtual DOM
 
 "Wait, when talking about using the setter, you said calling it runs the component again. Runs the whole function, top to bottom, and redraws the page? Every single time anything changes? That has to be slow."
 
-It would be, if React redrew the real page every time. It does not. When your component runs, it does not touch the actual page directly. It returns a lightweight description of what the page should look like, a plain tree of objects that React keeps in memory. People call it the virtual DOM. When state changes and the component runs again, React builds a fresh description and compares it against the previous one, then works out the smallest set of real changes that take the page from the old version to the new. Remove one product from a list of fifty and React changes that one item and leaves the other forty-nine alone. Remember writing `document.createElement` and `appendChild` by hand, clearing the whole list and rebuilding it on every change? This is React doing that for you, and doing far less of it than you would by hand. You describe what the page should be. React figures out the steps to get there.
+It would be, if React redrew the real page every time. It does not. When your component runs, it doesn't touch the actual page directly. It returns a lightweight description of what the page should look like, a plain tree of objects that React keeps in memory. People call it the virtual DOM. When state changes and the component runs again, React builds a fresh description and compares it against the previous one, then works out the smallest set of real changes that take the page from the old version to the new. Remove one product from a list of fifty and React changes that one item and leaves the other forty-nine alone. Remember writing `document.createElement` and `appendChild` by hand, clearing the whole list and rebuilding it on every change? This is React doing that for you, and doing far less of it than you would by hand. You describe what the page should be. React figures out the steps to get there.
 
 ## Handling events
 
@@ -91,11 +91,11 @@ const [name, setName] = useState("");
 />;
 ```
 
-`value={name}` fills the box from state: whatever is in `name` is what shows. `onChange` runs on every keystroke and pushes the new text back into state with `setName`. State to box, box to state, wired by hand. An input set up this way is called a controlled input, because React controls its value, not the browser.
+`value={name}` fills the box from state: whatever is in `name` is what shows. `onChange` runs on every keystroke and pushes the new text back into state with `setName`. State to box, box to state, wired by hand. An input set up this way is called a _controlled input_, because React controls its value, not the browser.
 
 Maybe you're now thinking "That is two lines for what should be one variable. Other frameworks just bind a variable to the input and keep them in sync for you."
 
-Some do, yes. Vue has `v-model`, Angular has two-way binding. React deliberately does not. The idea is that there is exactly one place the value lives, your state, and the input is only ever a reflection of it. There is no second copy hiding inside the DOM that might be different.
+Some do, yes. Vue has `v-model`, Angular has two-way binding. React deliberately does not. The idea is that there is exactly one place the value lives, your state, and the input is only ever a reflection of it.
 
 ## A form that adds products
 
@@ -144,17 +144,16 @@ export function ProductForm({ onAdd }: ProductFormProps) {
 }
 ```
 
-Two controlled inputs, name and price, each backed by its own piece of state. The price one wraps the value in `Number(...)` because an HTML input gives you a string even when it is `type="number"`, and we want to store a number in state.
+It works like this:
 
-The inputs sit inside a real `<form>`, which gets you two things for free: pressing Enter submits it, and a screen reader announces it as a form. The catch is that a submitted HTML form, by default, reloads the entire page, and in a single-page app a reload throws the whole running app away and starts from scratch. `event.preventDefault()` stops that. It's the first line of nearly every submit handler you will write.
+- `SubmitEvent` is only a type (the shape of the event the form passes to the submit handler), unlike `useState`, which is a real function. `import type` keeps it out of the compiled output, just like for the `Product` type last lesson.
+- `event.preventDefault()` is there because the inputs sit inside a real `<form>`. That gets you two things for free: pressing Enter submits it, and a screen reader announces it as a form. But a submitted HTML form, by default, reloads the entire page, and in a single-page app a reload throws the whole running app away and starts from scratch. `event.preventDefault()` stops that. It's the first line of nearly every submit handler you will write.
+- `name.trim() === "" || price <= 0` is the validation, and it's a bit basic for now: trim the name, check the price is above zero, stop early if either fails. No message on screen yet, just a quiet refusal.
+- `Number(...)` wraps the price input's value, because an HTML input gives you a string even when it's `type="number"`, and we want to store a number in state.
 
-The imports are also worth a look. We pull in `useState`, a real function, and `SubmitEvent`, which is only a type (the shape of the event the form passes to the submit handler). `import type` keeps it out of the compiled output, just like for the `Product` type last lesson.
+Now look at what the form does when you submit a valid product: it calls `onAdd(name, price)`. It does not add the product itself. `onAdd` is a prop, a function handed in by whoever rendered the form.
 
-The validation is a bit basic now. Trim the name, check the price is above zero, stop early if either fails. No message on screen yet, just a quiet refusal. Enough for now.
-
-Now the part that matters. Look at what the form does when you submit a valid product: it calls `onAdd(name, price)`. It does not add the product itself. `onAdd` is a prop, a function handed in by whoever rendered the form.
-
-This is events going up. Data goes down the tree as props, the way it has since the first React lesson, parent handing values to child. Actions go back up as function calls. The parent gives the child a function, the child calls that function when something happens and passes along whatever the parent needs to know. The form is not allowed to reach up and put a product into the page's state, and it could not anyway, the state lives in a different component. So instead it taps the page on the shoulder: someone wants to add a product, here is the name and the price. What the page does about that is the page's business.
+This is events going up. Data goes down the tree as props, parent handing values to child. Actions go back up as function calls. The parent gives the child a function, the child calls that function when something happens and passes along whatever the parent needs to know. The form is not allowed to reach up and put a product into the page's state, and it couldn't anyway (the state lives in a different component). So instead it taps the page on the shoulder: someone wants to add a product, here's the name and the price. What the page does about that is the page's business.
 
 ```
             props (data, down)
@@ -163,9 +162,9 @@ ProductsPage  ◀───────────────────  Prod
             onAdd(name, price) (action, up)
 ```
 
-Now notice the type of `onAdd` in the code example at the beginning of this section: `(name: string, price: number) => void`. It shows that a prop can be a function, and you type a function prop the way you type any function, its parameters and what it returns. The `=> void` means it hands nothing back, the form calls it and carries on. Giving the prop a type means the page cannot wire up a function of the wrong shape, and inside the form you get autocomplete on the arguments inside your editor.
+Now notice the type of `onAdd` in `ProductFormProps`: `(name: string, price: number) => void` (in the code example at the beginning of this section). It shows that a prop can be a function, and you type a function prop the way you type any function, its parameters and what it returns. The `=> void` means it hands nothing back, the form calls it and carries on. Giving the prop a type means the page cannot wire up a function of the wrong shape, and inside the form your editor gives you autocomplete on the arguments.
 
-> 🎓 Over in the page, two changes need to be made. A handler that does the actual adding, and the form rendered with `onAdd` that points to the handler:
+> 🎓 Make two changes in `ProductsPage.tsx`: add a handler that does the actual adding (put it below the `useState`), and render the form above the list, with `onAdd` pointing to the handler:
 
 ```tsx
 function addProduct(name: string, price: number) {
@@ -180,7 +179,7 @@ function addProduct(name: string, price: number) {
 
 `addProduct` builds the new product object and adds it to the list. The id uses `Date.now()`, the current time in milliseconds, which is a good-enough unique value for now. (Once there is a backend, the server will send us real ids and this goes away.)
 
-The line to take a closer look at is `setProducts([...products, newProduct])`. Inside setProducts, we build a new array, fill it with all the old products using the spread syntax, and add the new one on the end. What we do not do is push onto the existing array:
+The line to take a closer look at is `setProducts([...products, newProduct])`. Inside `setProducts`, we build a new array, fill it with all the old products using the spread syntax, and add the new one on the end. What we do not do is push onto the existing array:
 
 ```tsx
 products.push(newProduct); // No. Don't. Not cool. Seriously, I mean it!
@@ -215,9 +214,9 @@ export function ProductCard({ product, onDelete }: ProductCardProps) {
 }
 ```
 
-`onDelete` is typed `(id: number) => void`, and the button hands the id of the product to the parent. One small thing in that `onClick` that could be confusing: it is `onClick={() => onDelete(product.id)}`, an arrow function that calls `onDelete` when clicked, not `onClick={onDelete(product.id)}`, which would call `onDelete` immediately, during render, on every render. We want to hand React a function that will be able to run later, not run onDelete now.
+`onDelete` is typed `(id: number) => void`, and the button hands the id of the product to the parent. One thing might seem strange: it's `onClick={() => onDelete(product.id)}`, an arrow function that calls `onDelete` when clicked, not `onClick={onDelete(product.id)}`, which would call `onDelete` immediately, during render, on every render. We want to hand React a function to run later, not run `onDelete` now.
 
-The list component only passes the callback through. `ProductList` does not delete anything either, it sits between the page and the cards, so it takes `onDelete` and hands it to every card.
+`ProductList` doesn't delete anything either. It sits between the page and the cards, so it takes `onDelete` and hands it to every card.
 
 > 🎓 Update `ProductList.tsx` to pass `onDelete` through to each card:
 
@@ -241,9 +240,7 @@ export function ProductList({ products, onDelete }: ProductListProps) {
 }
 ```
 
-Same `.map` and `key` from last lesson, one card per product. The only new thing is `onDelete` being passed along to each card.
-
-> 🎓 And the page above handles it. Make these changes to `ProductsPage.tsx`: Add the `deleteProduct` handler, and pass it to the list:
+> 🎓 In `ProductsPage.tsx`, add the `deleteProduct` handler (put it below `addProduct`) and pass it to the list:
 
 ```tsx
 function deleteProduct(id: number) {
@@ -257,7 +254,9 @@ function deleteProduct(id: number) {
 
 `filter` returns a new array with the matching product left out, which is the new-array-not-mutation rule again, this time for free, since `filter` never touches the original. Hand the new array to `setProducts`, React sees a new value, re-renders, the product is gone.
 
-> 🎓 Save and try it out: click Delete on a card, watch it disappear. Two features now, add and delete, implemented the same way: the event happens down in a child, the state change happens up in the page, and a callback prop connects them.
+> 🎓 Save and try it out: click Delete on a card. See? It's gone!
+
+Two features now, add and delete, implemented the same way: the event happens down in a child, the state change happens up in the page, and a callback prop connects them.
 
 ## When a file starts to grow (Oh, oh!)
 
@@ -265,11 +264,11 @@ Step back and look at `ProductsPage`. It holds the products, it holds the add an
 
 The problem is the growth you stop noticing. Every feature you add is one more thing the page does, and the path of least resistance is always to add it right here, where everything already is. Keep doing that for a few weeks without ever pausing to reorganise, and you arrive at the failure I see most often in this course: one component carrying a whole feature on its own, hundreds of lines, state and logic and markup are all over the place, and nobody on the team wants to take the time to clean up this mess.
 
-The fix is not to write it perfectly the first time. You cannot, because you do not yet know what the feature will need. _Coding is a journey of discovery_. The fix is to keep reshaping the code as you go, so it never gets too far. That is refactoring: improving the structure of code without changing what it does. Same behaviour, better shape. You are not adding a feature or fixing a bug, the app does exactly what it did before, you are just making the code easier to live in. Rename a variable that misleads, split a component that has gotten too big, lift a repeated block into one place. Small and constant, woven through the work, not a grand cleanup you schedule for "later".
+The fix is not to write it perfectly the first time. You cannot, because you do not yet know what the feature will need. _Coding is a journey of discovery_. The fix is to keep reshaping the code as you go, so it never gets too far. That's _refactoring_: improving the structure of code without changing what it does. You're not adding a feature or fixing a bug, you're just making the code easier to work with. Rename a variable that misleads, split a component that has gotten too big, lift a repeated block into one place. Small changes, all the time, not a big cleanup you plan for "later".
 
-I will share an embarrassing story, because it is the thing new developers most underrate. I once worked at a company that threw away two years of work by 40 developers, before ever releasing a 1.0, because the code had rotted to the point where every change broke two other things and the servers crashed every weekend. I blame it on management without a clear vision. They wanted us to keep adding endless (and aimless) new features. It wasn't a fun experience, but they paid me quite well to bring the servers back up every weekend for almost a year. Nobody planned to build something unworkable. They just kept adding and never refactoring, and one day the code was past saving. Code that has grown too tangled to change safely is dead, even while it still runs.
+I will share an embarrassing story, because refactoring is the thing new developers most underrate. I once worked at a company that threw away two years of work by 40 developers, before ever releasing a 1.0, because the code had rotted to the point where every change broke two other things and the servers crashed every weekend. I blame it on management without a clear vision. They wanted us to keep adding endless (and aimless) new features. It wasn't a fun experience, but they paid me quite well to bring the servers back up every weekend for almost a year. Nobody planned to build something unworkable. They just kept adding and never refactoring, and one day the code could not be saved anymore. Code that has grown too tangled to change safely is dead, even while it still runs.
 
-A "code smell" is the name for a sign that the structure is going wrong. Not a bug, just a shape that tends to grow bugs. Some examples for a React app:
+A _code smell_ is the name for a sign that the structure is going wrong. Not a bug, just a shape that tends to grow bugs. Some examples for a React app:
 
 - A component file long enough that you have to scroll around to find anything.
 - The same chunk of JSX or logic in two places, so any change has to be made twice and one copy eventually gets forgotten.
@@ -282,7 +281,7 @@ Each one is a reminder to refactor, not an emergency. You notice it, fix it, and
 
 Time to add editing to our project. It seems like a small feature. Click Edit on a product, change its name or price, save. But watch what it does to the code.
 
-We can use ProductForm as a starting point.
+We can use `ProductForm` as a starting point.
 
 First the page needs to know that a product is being edited, and which one. The obvious choice would be to add something like this:
 
@@ -290,7 +289,7 @@ First the page needs to know that a product is being edited, and which one. The 
 const [editingId, setEditingId] = useState<number | null>(null);
 ```
 
-When editingId is `null`, the component's state would be "not editing, the form is in add mode". When editingId contains an id, it would be "editing this product". We could add an Edit button that sends the id up to the parent, the same callback pattern as delete, and have the page store it.
+When `editingId` is `null`, the component's state would be "not editing, the form is in add mode". When `editingId` contains an id, it would be "editing this product". We could add an Edit button that sends the id up to the parent, the same callback pattern as delete, and have the page store it.
 
 Now the form has to do two jobs, add and edit, and in edit mode it has to open with the product's current values already in the boxes. Here we're starting to see why the `editingId` choice might be wrong. The form is handed an id, a number. But to fill the name and price fields, it needs the product's name and price. So the form also has to go and find the product, which means the page has to also hand it the whole products array, and the form has to dig through it. Something like:
 
@@ -302,7 +301,7 @@ const editing =
 
 The form's props have now grown to include the entire `products` array. Stop and look at what that did.
 
-The form used to need one thing (onAdd, a way to report a new product up). Now it also needs the whole list and the logic for searching it. A component whose job is "edit one product" is suddenly carrying the entire collection and a lookup. That is the third "code smell" from the last section, a component reaching into data that is not its business. It works, but it is wrong, and the wrongness will spread.
+The form used to need one thing (`onAdd`, a way to report a new product up). Now it also needs the whole list and the logic for searching it. A component whose job is "edit one product" is suddenly carrying the entire collection and a lookup. That is the third "code smell" from the last section, a component reaching into data that is not its business. It works, but it is wrong, and the wrongness will spread _like a virus_.
 
 Components are now tied together, and dependent on how that list is shaped. We want components that stand on their own and do one thing.
 
@@ -323,13 +322,13 @@ type ProductFormProps = {
 };
 ```
 
-What the user sees is identical. The shape of the code is better. That is a refactor: we changed the structure, not the behaviour.
+What the user sees is identical, but the code is better. That's a refactor: we changed the structure, not the behaviour.
 
 > 🎓 Update `ProductForm.tsx`. It fills its fields from `editingProduct` and handles both submit cases:
 
 ```tsx
 import { useState } from "react";
-import type { FormEvent } from "react";
+import type { SubmitEvent } from "react";
 import type { Product } from "../../types/Product";
 
 type ProductFormProps = {
@@ -348,7 +347,7 @@ export function ProductForm({
   const [name, setName] = useState(editingProduct?.name ?? "");
   const [price, setPrice] = useState(editingProduct?.price ?? 0);
 
-  function handleSubmit(event: FormEvent) {
+  function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
     if (name.trim() === "" || price <= 0) {
       return;
@@ -406,7 +405,7 @@ So in add mode the fields are empty, and in edit mode they open with the product
 
 (Keeping the same id is of course important for an edit. You are changing the contents of an existing product, not making a new one.)
 
-The heading and the button label change, based on whether you are editing. A Cancel button appears only in edit mode, and because it is a `<button type="button">` and not a `<button type="submit">`, it does not submit the form.
+The heading and the button label change based on whether you're editing. A Cancel button appears only in edit mode, and because it is a `<button type="button">` and not a `<button type="submit">`, it does not submit the form.
 
 Now, when we test this, a new issue shows up, but the fix reuses something you already know.
 
@@ -426,7 +425,7 @@ What we want is for the form to start over, fresh, whenever the product being ed
 
 The key is `editingProduct?.id ?? "new"`, the product's id while editing, the string `"new"` while adding. Click Edit on a different product and the id changes, so React gives you a fresh form filled from that product. Save or cancel and it goes back to `"new"`, a fresh empty form.
 
-> 🎓 Add the three handlers to `ProductsPage.tsx` to finish this:
+> 🎓 Add the three handlers to `ProductsPage.tsx` (put them with the other handlers):
 
 ```tsx
 function updateProduct(updated: Product) {
@@ -443,9 +442,13 @@ function cancelEdit() {
 }
 ```
 
-The `products.map()` might need an explanation:
+That might need an explanation:
 
-`updateProduct` maps through the list and swaps in the updated product wherever the id matches, but leaves the rest. Then it clears `editingProduct`, which sets the key back to `"new"` and gives you a fresh empty form. `startEditing` stores the whole product, and `cancelEdit` clears it. Notice `startEditing` takes the product, not the id, so the Edit button on the card hands up the whole product now:
+- `updateProduct` maps through the list and swaps in the updated product wherever the id matches, but leaves the rest. Then it clears `editingProduct`, which sets the key back to `"new"` and gives you a fresh empty form.
+- `startEditing` stores the whole product.
+- `cancelEdit` clears it.
+
+Notice `startEditing` takes the product, not the id, so the Edit button on the card hands up the whole product now:
 
 ```tsx
 <button onClick={() => onEdit(product)}>Edit</button>
@@ -540,7 +543,7 @@ export function ProductCard({ product, onEdit, onDelete }: ProductCardProps) {
 
 ## Styling your components
 
-It's time to talk about CSS again. See that `className="card"`? We haven't added any stylesheets yet, and `index.css` has been empty since we cleared out Vite's demo styling (if yours still has it, empty it now). Time to fix that, and to keep a promise from the CSS lesson: with React, we can give every component its own stylesheet.
+It's time to talk about CSS again. See that `className="card"`? We haven't added any stylesheets yet, and `index.css` has been empty since we cleared out Vite's demo styling (if yours still has it, empty it now). Let's fix that. With React, we can give every component its own stylesheet.
 
 > 🎓 Make `ProductCard.module.css` in `features/products/`:
 
@@ -563,9 +566,13 @@ import styles from "./ProductCard.module.css";
     <div className={styles.card}>
 ```
 
-Save, and the cards have a border. Now open the inspector in your browser, and look at the class on one of them. It isn't `card`. It's something like `_card_1a2b3`. The `.module.css` in the file name tells Vite this is a CSS Module: it renames every class in the file to something unique, and hands you the new names as an object, so `styles.card` is whatever it came up with. The payoff is that a `.card` in this file can never collide with a `.card` anywhere else. In the fundamentals lessons every class was global, one namespace for the whole site, and you managed that just by using good class names. In a project where four people each style their own components, that stops working the first time two of you pick the same name. (And you will. There are only so many words for "card".)
+> 🎓 Save, and the cards have a border. Now open the inspector in your browser and look at the class on one of them.
 
-Two things a module leaves alone: the variables in `:root` and anything on `body` are global and stay global, so a module can use `var(--space-m)` from the shared stylesheet like any other file: modules rename classes, nothing else. And the shared stylesheet, imported once in `main.tsx` (`index.css` here, `styles.css` in your project), is still the one home for the reset, the typography and the variables. A module holds what belongs to one component, and nothing more. One wrinkle: TypeScript only knows `styles` is an object of strings, so `styles.crad` is not an error, it's an empty class. If a style refuses to show up, check the spelling first.
+It isn't `card`. It's something like `_card_1a2b3`. The `.module.css` in the file name tells Vite this is a CSS Module: it renames every class in the file to something unique, and hands you the new names as an object, so `styles.card` is whatever it came up with. The payoff is that a `.card` in this file can never collide with a `.card` anywhere else. In the fundamentals lessons every class was global, one namespace for the whole site, and you managed that just by using good class names. In a project where four people each style their own components, that stops working the first time two of you pick the same name. (And you will. There are only so many words for "card".)
+
+Note: a module renames classes, nothing else. The variables in `:root` and anything on `body` stay global, so a module can use `var(--space-m)` from the shared stylesheet like any other file. The shared stylesheet, imported once in `main.tsx` (`index.css` here, `styles.css` in your project), is still the one home for the reset, the typography and the variables. A module holds what belongs to one component, and nothing more.
+
+P.S.: TypeScript only knows `styles` is an object of strings, so `styles.crad` is not an error, it's an empty class. If a style refuses to show up, check the spelling first.
 
 ## Tidying up, and a checklist for code smell
 
@@ -607,15 +614,15 @@ When you are not sure if something needs a refactor, these are the questions to 
 
 None of this is about making the code clever. It is about making it the kind of code another person, or you in three months, can change without fear.
 
-> 🎓 Now try it on your own code. Open the project you've been building alongside these lessons and check it against the seven questions above. Find one thing that smells (just one for this exercise), fix it, then run the app and check if it still does exactly what it did before. Spotting the smell before anyone is pointing at it is one of the best skills a developer can develop.
+> 🎓 Now try it on your own code. Open the project you've been building alongside these lessons and check it against the seven questions above. Find one thing that smells (just one for this exercise), fix it, then run the app and check if it still does exactly what it did before.
+
+Spotting the smell before anyone is pointing at it is one of the best skills a developer can develop.
 
 ## What's next
 
 You can add, edit, and delete now, and the code holding it together is in pretty good shape.
 
-The data is still baked in, though. Look at the top of `ProductsPage`: the products start as a hardcoded array sitting in `useState`, three products we typed into the source. A real app does not know its data in advance. It asks a server, and the server answers a moment later, over the network, which takes time. So the screen has to handle the in-between, the time after you ask and before the answer arrives, and the case where the answer comes back with an error instead of data.
-
-That is the next lesson. We swap the hardcoded array for a real request and learn to handle a screen that's waiting for its data. But our add, edit, and delete keep working on whatever comes back.
+The data is still hardcoded, though: three products we typed into the source. A real app asks a server for its data, and the screen has to show something while it waits for the answer, or when the answer is an error. That's the next lesson.
 
 ## Resources
 
