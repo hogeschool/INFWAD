@@ -479,7 +479,7 @@ The login screen is now quite simple! Just an ordinary page that gets `login` fr
 
 ```tsx
 import { useState } from "react";
-import type { FormEvent } from "react";
+import type { SubmitEvent } from "react";
 import { useNavigate } from "react-router";
 import { useAuth } from "./AuthContext";
 
@@ -490,7 +490,7 @@ export function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(event: FormEvent) {
+  function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
     if (login(username, password)) {
       navigate("/products");
