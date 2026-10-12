@@ -214,7 +214,8 @@ We don't want to fetch every time. We only want to fetch when there is nothing y
 
 ```ts
 async function initProducts() {
-  if (localStorage.getItem('products') === null) {
+   // if products is not there or is empty
+   if (localStorage.getItem('products') === null || localStorage.getItem('products') === '[]') {
     await fetchProducts()
   }
 }
