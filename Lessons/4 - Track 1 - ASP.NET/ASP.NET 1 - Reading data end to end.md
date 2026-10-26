@@ -685,7 +685,10 @@ You can now read a list, or read one item. That's only half of what we want from
 
 ## Applying this to your project
 
-Set up your backend once, with the whole team. One person creates the backend project, in a folder next to `ClientApp`, named after your case (`GameShelf.Api`, `BlokD.Api`, `Zetsel.Api` or `Hollowmere.Api` instead of `Catalog.Api`), adds the two packages and the tool, and builds the skeleton from section 1 up to the repository: `Program.cs`, `appsettings.json`, `AppDbContext`, `IEntity`, `IRepository` and `Repository`, and the registrations. Commit, everybody pulls.
+Set up your backend once, with the whole team. One person creates the backend project, in a folder next to `ClientApp`, named after your case (`GameShelf.Api`, `BlokD.Api`, `Zetsel.Api` or `Hollowmere.Api` instead of `Catalog.Api`), adds the two packages and the tool, and builds the skeleton from section 1 up to the repository: `Program.cs`, `appsettings.json`, `AppDbContext`, `IEntity`, `IRepository` and `Repository`, and the registrations.
+
+Before you commit, create a new **.gitignore** for the backend: Run `dotnet new gitignore` in your `GameShelf.Api`, `BlokD.Api`, `Zetsel.Api` or `Hollowmere.Api` folder.
+Then commit, and everybody pulls.
 
 The _shared thing_ for your case is also team work. Every case has one entity that every module points at (the catalogue, the machines, the beans, the bestiary). Build its _read_ slice together: the model, its own `DbSet` inside `AppDbContext`, a seed block, the DTO, the service, the controller, one line of DI.
 
