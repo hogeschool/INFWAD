@@ -1,0 +1,28 @@
+@baseUrl = http://localhost:5210
+
+### Get all products
+GET {{baseUrl}}/api/products
+
+### Get one product
+GET {{baseUrl}}/api/products/1
+
+### Create a product
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "title": "Keyboard",
+  "price": 90
+}
+
+### Update a product
+PUT {{baseUrl}}/api/products/1
+Content-Type: application/json
+
+{
+  "title": "Fancy Laptop",
+  "price": 2400
+}
+
+### Delete a product
+DELETE {{baseUrl}}/api/products/4
