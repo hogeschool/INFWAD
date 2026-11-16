@@ -22,6 +22,7 @@ export function ProductDetailPage() {
     <div>
       <h1>{product.name}</h1>
       <p>€{product.price}</p>
+      <p>Category: {product.category.name}</p>
       <Link to="/products">Back to products</Link>
     </div>
   );

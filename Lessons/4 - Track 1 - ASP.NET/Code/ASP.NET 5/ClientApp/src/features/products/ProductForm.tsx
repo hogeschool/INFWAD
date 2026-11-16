@@ -1,12 +1,15 @@
 import { useState } from "react";
 import type { SubmitEvent } from "react";
 import type { Product } from "../../types/Product";
+import type { ProductData } from "../../api/products";
+import * as categoriesApi from "../../api/categories";
+import { useFetch } from "../../hooks/useFetch";
 import styles from "./Products.module.css";
 
 type ProductFormProps = {
   editingProduct: Product | null;
-  onAdd: (name: string, price: number) => void;
-  onUpdate: (product: Product) => void;
+  onAdd: (data: ProductData) => void;
+  onUpdate: (id: number, data: ProductData) => void;
   onCancel: () => void;
 };
 
@@ -18,19 +21,25 @@ export function ProductForm({
 }: ProductFormProps) {
   const [name, setName] = useState(editingProduct?.name ?? "");
   const [price, setPrice] = useState(editingProduct?.price ?? 0);
+  const [categoryId, setCategoryId] = useState(
+    editingProduct?.category.id ?? 0,
+  );
+  const { data: categories } = useFetch(categoriesApi.getAll, []);
 
   function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
-    if (name.trim() === "" || price <= 0) {
+    if (name.trim() === "" || price <= 0 || categoryId === 0) {
       return;
     }
+    const data: ProductData = { name, price, categoryId };
     if (editingProduct) {
-      onUpdate({ id: editingProduct.id, name, price });
+      onUpdate(editingProduct.id, data);
     } else {
-      onAdd(name, price);
+      onAdd(data);
     }
     setName("");
     setPrice(0);
+    setCategoryId(0);
   }
 
   return (
@@ -47,6 +56,17 @@ export function ProductForm({
           value={price}
           onChange={(event) => setPrice(Number(event.target.value))}
         />
+        <select
+          value={categoryId}
+          onChange={(event) => setCategoryId(Number(event.target.value))}
+        >
+          <option value={0}>Choose a category</option>
+          {(categories ?? []).map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
+          ))}
+        </select>
         <button type="submit">{editingProduct ? "Save" : "Add"}</button>
         {editingProduct && (
           <button type="button" onClick={onCancel}>

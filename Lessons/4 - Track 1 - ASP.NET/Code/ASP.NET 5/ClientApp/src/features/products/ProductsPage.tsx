@@ -4,6 +4,7 @@ import * as productsApi from "../../api/products";
 import { useFetch } from "../../hooks/useFetch";
 import { ProductForm } from "./ProductForm";
 import { ProductList } from "./ProductList";
+import type { ProductData } from "../../api/products";
 
 export function ProductsPage() {
   const [search, setSearch] = useState("");
@@ -18,9 +19,9 @@ export function ProductsPage() {
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [saveError, setSaveError] = useState<string | null>(null);
 
-  async function addProduct(name: string, price: number) {
+  async function addProduct(data: ProductData) {
     try {
-      const created = await productsApi.create({ name, price, categoryId: 1 });
+      const created = await productsApi.create(data);
       setProducts([...(products ?? []), created]);
       setSaveError(null);
     } catch (err) {
@@ -30,14 +31,12 @@ export function ProductsPage() {
     }
   }
 
-  async function updateProduct(updated: Product) {
+  async function updateProduct(id: number, data: ProductData) {
     try {
-      const saved = await productsApi.update(updated.id, {
-        name: updated.name,
-        price: updated.price,
-        categoryId: updated.category.id,
-      });
-      setProducts((products ?? []).map((p) => (p.id === saved.id ? saved : p)));
+      const updated = await productsApi.update(id, data);
+      setProducts(
+        (products ?? []).map((p) => (p.id === updated.id ? updated : p)),
+      );
       setEditingProduct(null);
       setSaveError(null);
     } catch (err) {
