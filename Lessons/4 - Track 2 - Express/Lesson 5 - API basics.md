@@ -1,4 +1,4 @@
-﻿# API basics
+﻿# Lesson 5: API basics
 
 ### What is an API?
 
@@ -115,7 +115,7 @@ Now import and set this function in our `api/products.routes.ts`
 
 `router.get("/", getAllProducts);`
 
-ðŸ‘‰  **Exercises: Create API controller for /:id**
+👉 **Exercises: Create API controller for /:id**
 Write the `getProduct` method in our API controller to get a single product based on id and connect it to the route.
 Don't forget to handle possible errors.
 
@@ -123,15 +123,14 @@ Don't forget to handle possible errors.
 
 To test our API we need to access that route. Just like we did when we had views. Now the endpoint returns JSON instead of a website using a webbrowser for this is not the most handy way. 
 In VS Code install the plugin `REST Client` by `Huachao Mao`.
-
-Now in your project folder create a new file called `products.rest`, the VS Code extension will recognize this a REST test file. You could create multiple `.rest` files for different paths.
+In the root of your project, create a folder called `rest-tests`. This folder will contain our HTTP request files, keeping them separate from the application code. Now in your this folder create a new file called `products.rest`, the VS Code extension will recognize this a REST test file. You could create multiple `.rest` files for different paths.
 
 Write the following line `GET http://localhost:3000/api/products`. Run your server, check if port 3000 is correct. Above your line a text *Send Request* will appear. You can click this to send the request, if your server works correctly, a new window will open with the result of your request. 
 
-ðŸ‘‰  **Exercises: Test your API**
+👉  **Exercises: Test your API**
 You can create multiple requests in a `.rest` file by separating them by a line of `###`. Create a second request to get a single product and try it. 
 
-ðŸ‘‰  **Exercises: Include the category**
+👉  **Exercises: Include the category**
 You have probably noticed, there's no `category` information in the response. TypeORM doesn't include relations automatically, like we have seen in the previous lesson. Fix the two controller methods to include the `category` information and test your endpoints again. 
 
 
@@ -147,16 +146,16 @@ In a RESTful API, everything is treated as a resource:
 - /orders/123
 
 You use HTTP methods to express what you want to do with the resource:
-- GET /products â†’ retrieve
-- POST /products â†’ create
-- PUT /products/10 â†’ replace/update
-- PATCH /products/10 â†’ partially update
-- DELETE /products/10 â†’ delete
+- GET /products -> retrieve
+- POST /products -> create
+- PUT /products/10 -> replace/update
+- PATCH /products/10 -> partially update
+- DELETE /products/10 -> delete
 
 Get resources from within another resource.\
 For example, to get all items from an order\
-âœ”ï¸ Good: /orders/5/items\
-âŒ Bad: /getItemsFromOrderId/5
+Good: /orders/5/items\
+Bad: /getItemsFromOrderId/5
 
 **The API is stateless.**
 
@@ -196,18 +195,28 @@ export async function getAllProducts(req: Request, res: Response) {
     res.json(allProducts);
 }
 ```
-ðŸ‘‰  **Exercises: Filter by name**
-Adjust the code to also be able to filter on name. 
+👉  **Exercises: Filter by name**
+Adjust the code to also be able to filter on name. Include a new test in your products.rest file to test it.
 
-ðŸ‘‰  **Exercises: Filter with operators**
-Now look up what TypeORM operators are and adjust your filter to use Like on the name. 
+👉 **Exercises: Filter with operators**
+Now look up what TypeORM operators are and adjust your filter to use Like on the name. Include a new test in your products.rest file to test it.
 
 
-ðŸ‘‰  **Exercises: Create a POST /Products endpoint** 
+👉  **Exercises: Create a POST /Products endpoint** 
 Code an endpoint to create a new product. You can take a look at our non-api code where we have done this before.\
 An endpoint should always respond something. Send a `201` response containing the newly created product, including its new generated id from the database.
 ```res.status(201).json(newProduct);```
+The test code in your `products.rest` will be something like this. The given content will be included in the `body` of the `Request` just like when we handled the form.
+```
+POST http://localhost:3000/api/products
+Content-Type: application/json
 
+{
+    "name": "The Hobbit",
+    "description": "Fantasy",
+    "price": 12.50
+}
+```
 
 
 

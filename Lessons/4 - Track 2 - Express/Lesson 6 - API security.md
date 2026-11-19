@@ -1,4 +1,4 @@
-# API Security
+# Lesson 6: API Security
 
 ## Recap
 
@@ -109,7 +109,7 @@ export async function hashPassword(password: string) {
 ```
 
 ### Timing attack
-There's one more trick an attacker can use and we need to prevent. Comparing two strings will take a certain amount of time. This time will be shorter if the two strings mismatch earlier and longer if they match almost all the way. If we compare the hashes with normal string comparison an attacker can time how fast our endpoint responds to see how close the passwords match. 
+There's one more trick an attacker can use and we need to prevent. Comparing two strings will take a certain amount of time. This time will be shorter if the two strings mismatch earlier and longer if they match almost all the way. If we compare the hashes with normal string comparison an attacker can time how fast our endpoint responds to see how close the hashes match. 
 
 To prevent this we're not gonna compare the two strings, but we will compare the raw data using a method from the crypto library which is designed to always take the same time. Now we can complete our comparePasswords function. 
 
@@ -162,13 +162,15 @@ Create the files `auth.routes.ts` and `auth.controller.ts` in the correct places
 ```TS
 import type { Request, Response } from "express";
 
-export async function loginUser(req: Request, res: Response) {
+async function loginUser(req: Request, res: Response) {
 
 }
 
-export async function createNewUser(req: Request, res: Response) {
+async function createNewUser(req: Request, res: Response) {
 
 }
+
+export {loginUser, createNewUser}
 ```
 
 Set up the endpoints in the router.
@@ -200,6 +202,8 @@ Let's create the register method first. We'll assume the request body contains a
 
 Extract the data from the `req.body`. Hash the password. Create a new User model instance (set the role to `user`) and save it using TypeORM. Respond a `201` with the new user data. Do **not include** the hashed password in the response. 
 
+👉  **Exercises: REST test the createNewUser method**\
+In the `rest-tests` folder create a new file `auth.rest` and write the POST call to test your `createNewUser` path. 
 
 ### loginUser method
 
@@ -232,7 +236,6 @@ export async function loginUser(req: Request, res: Response) {
     }
 
     // TODO: Generate the JWT and send it back
-
 }
 ```
 
@@ -270,7 +273,7 @@ An attacker at the front-end could also decode the JWT but he won't have the sec
 const token = jwt.sign(
     { 
         id: user.id, 
-        role: user.role // Adding the role here
+        role: user.role 
     }, 
     "my_temporary_secret_123", // Using a hardcoded secret for now
     { expiresIn: '1h' }
@@ -281,6 +284,9 @@ res.json({ token, user: { id: user.id, name: user.name, email: user.email, role:
 
 Besides the token we also return a `user` object with the basic profile information. This is common practice, it lets the frontend know who just logged in (name for a greeting, role for showing the right UI) without having to decode the JWT or make an extra API call. Never include sensitive fields like the password hash.
 
+
+👉  **Exercises: REST test the login method**\
+Update your `auth.rest` and write the POST call to test your login path. 
 ---
 
 ## What's Next
