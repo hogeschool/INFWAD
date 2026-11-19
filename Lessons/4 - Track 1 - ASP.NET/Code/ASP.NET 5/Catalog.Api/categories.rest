@@ -1,0 +1,7 @@
+@baseUrl = http://localhost:5210
+
+### Get all categories
+GET {{baseUrl}}/api/categories
+
+### Get one category
+GET {{baseUrl}}/api/categories/1
