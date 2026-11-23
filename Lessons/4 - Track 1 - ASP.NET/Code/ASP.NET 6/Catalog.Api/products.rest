@@ -1,0 +1,64 @@
+@baseUrl = http://localhost:5210
+
+### Get all products
+GET {{baseUrl}}/api/products
+
+### Get one product
+GET {{baseUrl}}/api/products/1
+
+### Search products
+GET {{baseUrl}}/api/products?search=lap
+
+### Create a product
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "title": "Keyboard",
+  "price": 90,
+  "categoryId": 1
+}
+
+
+### Create a nonsense product (empty title, negative price)
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "title": "",
+  "price": -10,
+  "categoryId": 1
+}
+
+### Create a product in a category that does not exist
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "title": "Smart Fridge",
+  "price": 900,
+  "categoryId": 999
+}
+
+### Update a product
+PUT {{baseUrl}}/api/products/1
+Content-Type: application/json
+
+{
+  "title": "Fancy Laptop",
+  "price": 2400,
+  "categoryId": 1
+}
+
+### Little Bobby Tables
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "title": "Robert'); DROP TABLE Products;--",
+  "price": 5,
+  "categoryId": 1
+}
+
+### Delete a product
+DELETE {{baseUrl}}/api/products/4
